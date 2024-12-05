@@ -1,4 +1,3 @@
-
 ---
 layout: default
 ---
@@ -13,7 +12,9 @@ Poziom wykształcenia: zawodowe
 `09.2019 – 06.2024
 4 lata 10 mies.` 
 
-## Doświadczenie zawodowe
+
+
+# Doświadczenie zawodowe
 
 
 ```
@@ -31,7 +32,38 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 05.2023 – 06.2023
 2 mies.
 ```
-### Znajomość języków
+# Umiejętności
+
+
+* Montaż oraz demontaż komputerów 
+* Zabezpieczanie bazy danych 
+* MS Excel
+* Basic SQL queries 
+* JavaScript 
+* Umiejętność pracy w zespole
+* Komunikatywność 
+* Prawo jazdy kat. B
+
+
+## Znajomość języków
+
 
 <dt><b>Angielski:</b> poziom zaawansowany </dt>
 <b>Niemiecki:</b> poziom podstawowy
+
+
+# Szkolenia, kursy, certyfikaty
+### EE.08/INF.02 
+<dt> Organizator: Zespół szkół w Gdowie </dt>
+<b>03.2022 </b>
+
+
+### Certyfikat w obszarze elektryczno-elektronicznym
+
+<dt> Organizator: Państowa Wyższa Szkoła Zawodowa w Tarnowie </dt>
+<b>01.2020</b>
+
+### Google Cybersecurity Professional Certificate
+
+<dt> Organizator: Google </dt>
+<b>01.2025</b>
