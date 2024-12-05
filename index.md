@@ -29,6 +29,8 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 05.2023 – 06.2023
 2 mies.
 ```
+ㅤ
+
 # Umiejętności
 
 
@@ -47,6 +49,9 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 <dt><b>Angielski:</b> poziom zaawansowany </dt>
 <b>Niemiecki:</b> poziom podstawowy
 
+ㅤ
+ㅤ
+ㅤ
 
 # Szkolenia, kursy, certyfikaty
 ### EE.08/INF.02 
@@ -64,6 +69,9 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 <dt> Organizator: Google </dt>
 <b>01.2025</b>
 
+ㅤ
+ㅤ
+ㅤ
 # Kontakt
 ```
 mail: oskarchudoba@gmail.com 
