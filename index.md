@@ -1,13 +1,10 @@
----
-layout: default
----
 
 # Wykształcenie
-### <b>Zespół szkół w gdowie </b>
+### <b>Zespół szkół w Gdowie </b>
 
 
 <dt><b> Specjalizacja: Technik Informatyk </b></dt>
-Poziom wykształcenia: zawodowe
+Poziom wykształcenia: Zawodowe
 
 `09.2019 – 06.2024
 4 lata 10 mies.` 
@@ -21,7 +18,7 @@ Poziom wykształcenia: zawodowe
 Magazynier
 VanKing Celkar Podłęska 25, 32-005 Niepołomice
 
-09.2024 – 011.2024
+09.2024 – 11.2024
 3 mies.
 ```
 
@@ -40,8 +37,7 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 * MS Excel
 * Basic SQL queries 
 * JavaScript 
-* Umiejętność pracy w zespole
-* Komunikatywność 
+* Linux/Windows
 * Prawo jazdy kat. B
 
 
