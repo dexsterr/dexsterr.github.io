@@ -54,7 +54,7 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 
 # Szkolenia, kursy, certyfikaty
 ### EE.08/INF.02 
-<dt> Organizator: Zespół szkół w Gdowie </dt>
+<dt> Organizator: Centralną Komisję Egzaminacyjną </dt>
 <b>03.2022 </b>
 
 
@@ -67,3 +67,8 @@ KOMART Przemysław Stopa Rynek 419, 32-420 Gdów
 
 <dt> Organizator: Google </dt>
 <b>01.2025</b>
+
+# Kontakt
+```
+mail: oskarchudoba@gmail.com 
+```
