@@ -3,127 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Certifications and courses completed by Oskar Chudoba.">
+    <meta name="description" content="Certifications and courses completed by Oskar Chudoba in cybersecurity and programming.">
     <meta name="keywords" content="Oskar Chudoba, Cybersecurity, Certifications, Courses">
-    <title>Certifications & Courses - Oskar Chudoba</title>
+    <title>Oskar Chudoba - Certifications & Courses</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Particles.js container -->
-    <div id="particles-js"></div>
+    <!-- Nawigacja u góry -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-btn nav-left">Home</a>
+        <a href="projects.html" class="nav-btn nav-center">Projects</a>
+        <a href="about.html" class="nav-btn nav-right">About Me</a>
+    </nav>
 
-    <!-- Header -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certifications.html">Certifications & Courses</a></li>
-                <li><a href="about.html">About Me</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Certifications & Courses Section -->
+    <!-- Main Content -->
     <div class="container">
         <h1>Certifications & Courses</h1>
-
-        <!-- Certifications -->
-        <h2>CERTIFICATIONS</h2>
+        <h2>Certifications</h2>
         <ul>
-            <li>Google Cybersecurity Certificate (2025) - In progress</li>
-            <li>EE.08/INF.02.2022 - Computer Systems and Network Administration (2022)</li>
+            <li>Certified Ethical Hacker (CEH) - 2023</li>
+            <li>CompTIA Security+ - 2022</li>
         </ul>
-
-        <!-- Courses -->
-        <h2>COURSES</h2>
+        <h2>Courses</h2>
         <ul>
-            <li>CompTIA Security+ Training - In progress</li>
-            <li>Introduction to Python Programming - Udemy (2023)</li>
-            <li>Linux System Administration - Coursera (2023)</li>
-        </ul>
-
-        <!-- Education -->
-        <h2>EDUCATION</h2>
-        <ul>
-            <li>IT Technician, Vocational School in Gdynia, Gdynia (2019-2024)</li>
+            <li>Python for Cybersecurity - Udemy</li>
+            <li>Linux Administration - Coursera</li>
         </ul>
     </div>
-
-    <!-- Particles.js script -->
-    <script src="js/particles.min.js"></script>
-    <script>
-        particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#680404"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true
-                },
-                "size": {
-                    "value": 3,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#680404",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "repulse": {
-                        "distance": 100,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-    </script>
-    <!-- Transition script -->
-    <script src="js/transition.js"></script>
 </body>
 </html>
