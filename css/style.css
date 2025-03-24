@@ -99,7 +99,7 @@ nav ul li a:hover {
     font-size: 60px;
     color: #ffffff;
     margin-bottom: 15px;
-    text-shadow: 10px 10px 0 #333; /* Ostry cień, 10px od napisu, w pełni widoczny */
+    text-shadow: 3px 3px 0 #000; /* Ostry cień, 3px od napisu, całkowicie czarny */
     white-space: nowrap;
 }
 
@@ -109,7 +109,7 @@ nav ul li a:hover {
     color: #ff0000;
     margin-left: 5px;
     font-weight: bold;
-    animation: blink 0.5s step-end infinite; /* Miganie kursora */
+    animation: blink 0.3s step-end infinite; /* Szybsze miganie kursora (300ms) */
 }
 
 /* Animacja migania kursora */
