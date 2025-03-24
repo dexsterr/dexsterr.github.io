@@ -99,17 +99,16 @@ nav ul li a:hover {
     font-size: 60px;
     color: #ffffff;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px #333;
+    text-shadow: 10px 10px 0 #333; /* Ostry cień, 10px od napisu, w pełni widoczny */
     white-space: nowrap;
-    border-right: 3px solid #ff0000; /* Kursor początkowo widoczny */
-    animation: pulse 2s infinite;
 }
 
-/* Efekt pulsowania */
-@keyframes pulse {
-    0% { text-shadow: 2px 2px 4px #333; }
-    50% { text-shadow: 2px 2px 8px #ff0000; }
-    100% { text-shadow: 2px 2px 4px #333; }
+/* Styl dla kursora */
+.typing-cursor::after {
+    content: '|';
+    color: #ff0000;
+    margin-left: 5px;
+    font-weight: bold;
 }
 
 .button-group {
