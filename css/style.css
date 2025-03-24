@@ -99,7 +99,7 @@ nav ul li a:hover {
     font-size: 60px;
     color: #ffffff;
     margin-bottom: 15px;
-    text-shadow: 3px 3px 0 #000; /* Ostry cień, 3px od napisu, całkowicie czarny */
+    text-shadow: 1px 1px 0 #000000; /* Ostry cień, 1px od napisu, całkowicie czarny */
     white-space: nowrap;
 }
 
