@@ -32,29 +32,19 @@ body:not(.home-page)::before {
     opacity: 0.1;
 }
 
-/* Header i nawigacja */
-header {
-    background-color: #000000;
-    border-bottom: 2px solid #ff0000;
-    padding: 8px 0;
+/* Nawigacja u góry */
+.top-nav {
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
     z-index: 1000;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 15px;
-}
-
-nav ul li {
-    margin-right: 15px;
-}
-
-nav ul li a {
+.nav-btn {
     text-decoration: none;
     color: #ff0000;
     font-weight: bold;
@@ -62,8 +52,21 @@ nav ul li a {
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
+.nav-btn:hover {
     color: #cc0000;
+}
+
+.nav-left {
+    text-align: left;
+}
+
+.nav-center {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.nav-right {
+    text-align: right;
 }
 
 /* Strona główna */
@@ -116,29 +119,6 @@ nav ul li a:hover {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #ff0000;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
 }
 
 /* Kontener główny dla podstron */
@@ -253,28 +233,22 @@ ul li {
 
 /* Responsywność */
 @media (max-width: 768px) {
-    nav ul {
+    .top-nav {
         flex-direction: column;
-        padding: 8px;
+        align-items: center;
+        padding: 10px;
     }
 
-    nav ul li {
-        margin-bottom: 8px;
-        margin-right: 0;
+    .nav-btn {
+        margin-bottom: 10px;
+    }
+
+    .nav-left, .nav-center, .nav-right {
+        text-align: center;
     }
 
     .container {
         margin-top: 100px;
-    }
-
-    .button-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 16px;
     }
 
     .about-content {
