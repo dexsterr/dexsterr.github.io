@@ -8,7 +8,7 @@
 /* Ogólne style */
 body {
     font-family: 'Orbitron', sans-serif; /* Czcionka w stylu cyberpunk */
-    background-color: #1a1a1a; /* Ciemne tło */
+    background-color: #1a1a1a; /* Czarne tło */
     color: #ffffff; /* Biały tekst */
     line-height: 1.6;
     position: relative;
@@ -34,7 +34,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-color: #1a1a1a;
+    background-color: #1a1a1a; /* Czarne tło */
 }
 
 /* Header i nawigacja */
@@ -170,7 +170,7 @@ h2::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(104, 4, 4, 0.1), transparent); /* Subtelne tło dla nagłówków */
+    background: linear-gradient(90deg, rgba(104, 4, 4, 0.1), transparent);
     z-index: -1;
     animation: pulseLine 3s infinite;
 }
@@ -209,7 +209,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent); /* Subtelne tło dla sekcji */
+    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent);
     z-index: -1;
     animation: pulseSection 4s infinite;
 }
@@ -249,7 +249,7 @@ ul::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent); /* Subtelne tło dla list */
+    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent);
     z-index: -1;
     animation: pulseSection 4s infinite;
 }
@@ -304,56 +304,4 @@ ul li {
     transition: opacity 0.3s;
 }
 
-.profile-photo:hover {
-    opacity: 1;
-}
-
-/* Fade transition */
-.fade {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fade-out {
-    opacity: 0;
-}
-
-/* Responsywność */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        padding: 8px;
-        gap: 10px;
-    }
-
-    nav ul li {
-        margin-bottom: 8px;
-    }
-
-    .container {
-        margin-top: 100px;
-    }
-
-    .button-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about-photo {
-        flex: 0 0 180px;
-    }
-
-    .home-container h1 {
-        font-size: 40px;
-    }
-}
+.profile-phot
