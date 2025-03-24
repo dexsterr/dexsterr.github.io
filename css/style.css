@@ -23,44 +23,52 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+    background-color: #1a1a1a; /* Czarne tło */
+}
+
+/* Particles.js container */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     background-color: #1a1a1a;
 }
 
 /* Header i nawigacja */
 header {
     background-color: #000000;
-    padding: 20px;
+    border-bottom: 2px solid #680404; /* Czerwony akcent */
+    padding: 8px 0;
     position: fixed;
-    height: 100vh;
-    width: 200px; /* Pionowe menu po lewej */
+    width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    flex-direction: column; /* Pionowe menu */
+    justify-content: center; /* Menu na górze, wyśrodkowane */
+    padding: 0 15px;
     gap: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #680404; /* Nowy kolor czerwony */
+    color: #680404;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     transition: color 0.3s, text-shadow 0.3s;
-    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5); /* Czerwony glow */
+    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
 }
 
 nav ul li a:hover {
     color: #ffffff;
-    text-shadow: 0 0 10px #680404, 0 0 20px #680404; /* Mocniejszy glow przy najechaniu */
+    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
 }
 
 /* Strona główna */
@@ -71,15 +79,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a;
-}
-
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a;
-    z-index: 1;
+    background-color: #1a1a1a; /* Czarne tło */
 }
 
 .home-container {
@@ -89,9 +89,21 @@ nav ul li a:hover {
 
 .home-container h1 {
     font-size: 60px;
-    color: #ffffff;
+    background: linear-gradient(45deg, #680404, #ffffff); /* Gradientowy kolor tekstu */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 30px;
-    text-shadow: 0 0 10px #680404, 0 0 20px #680404; /* Czerwony glow */
+    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
+    animation: pulseGlow 2s infinite alternate; /* Pulsujący efekt glow */
+}
+
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 10px #680404, 0 0 20px #680404;
+    }
+    100% {
+        text-shadow: 0 0 15px #680404, 0 0 30px #680404;
+    }
 }
 
 .button-group {
@@ -123,7 +135,7 @@ nav ul li a:hover {
 /* Kontener główny dla podstron */
 .container {
     max-width: 1000px;
-    margin: 20px 20px 20px 220px; /* Margines z lewej strony dla menu */
+    margin: 70px auto 20px auto;
     padding: 0 15px;
     position: relative;
     z-index: 1;
@@ -131,9 +143,9 @@ nav ul li a:hover {
 
 /* Nagłówki */
 h1, h2, h3 {
-    color: #680404; /* Czerwone nagłówki */
+    color: #680404;
     margin-bottom: 15px;
-    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5); /* Czerwony glow */
+    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
 }
 
 h1 {
@@ -148,6 +160,31 @@ h2 {
     letter-spacing: 1px;
     border-bottom: 1px solid #680404;
     padding-bottom: 5px;
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(104, 4, 4, 0.1), transparent); /* Subtelne tło dla nagłówków */
+    z-index: -1;
+    animation: pulseLine 3s infinite;
+}
+
+@keyframes pulseLine {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.3;
+    }
 }
 
 h3 {
@@ -162,6 +199,19 @@ h3 {
     background-color: #333;
     border-radius: 5px;
     transition: transform 0.3s;
+    position: relative;
+}
+
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent); /* Subtelne tło dla sekcji */
+    z-index: -1;
+    animation: pulseSection 4s infinite;
 }
 
 .project:hover {
@@ -172,11 +222,36 @@ h3 {
     margin-bottom: 8px;
 }
 
+@keyframes pulseSection {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
 /* Lista w Certifications & Courses */
 ul {
     list-style-type: disc;
     margin-left: 20px;
     margin-bottom: 20px;
+    position: relative;
+}
+
+ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent); /* Subtelne tło dla list */
+    z-index: -1;
+    animation: pulseSection 4s infinite;
 }
 
 ul li {
@@ -245,25 +320,18 @@ ul li {
 
 /* Responsywność */
 @media (max-width: 768px) {
-    header {
-        width: 100%;
-        height: auto;
-        position: static;
-        padding: 10px;
-    }
-
     nav ul {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column;
+        padding: 8px;
         gap: 10px;
     }
 
     nav ul li {
-        margin-right: 10px;
+        margin-bottom: 8px;
     }
 
     .container {
-        margin: 20px;
+        margin-top: 100px;
     }
 
     .button-group {
