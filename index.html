@@ -33,7 +33,7 @@
         textElement.textContent = ''; // Czyścimy początkowy tekst
 
         let index = 0;
-        let isCursorVisible = true;
+        let isTyping = true;
 
         // Funkcja do pisania liter
         function type() {
@@ -43,14 +43,14 @@
                 setTimeout(type, 200); // Szybkość pisania (200ms na literę)
             } else {
                 // Po zakończeniu pisania ukrywamy kursor
-                isCursorVisible = false;
+                isTyping = false;
                 textElement.classList.remove('typing-cursor');
             }
         }
 
         // Funkcja do migania kursora
         function blinkCursor() {
-            if (isCursorVisible) {
+            if (isTyping) {
                 textElement.classList.toggle('typing-cursor');
                 setTimeout(blinkCursor, 500); // Szybkość migania kursora (500ms)
             }
