@@ -11,13 +11,31 @@ body {
     background-color: #1a1a1a; /* Ciemne tło */
     color: #ffffff; /* Biały tekst */
     line-height: 1.6;
+    position: relative;
+}
+
+/* Subtelne tło z "gwiezdnym pyłem" dla podstron */
+body:not(.home-page) {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); /* Delikatny gradient */
+}
+
+body:not(.home-page)::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000"><circle cx="100" cy="100" r="2" fill="white" opacity="0.3"/><circle cx="300" cy="200" r="1" fill="white" opacity="0.2"/><circle cx="500" cy="600" r="2" fill="white" opacity="0.3"/><circle cx="700" cy="300" r="1" fill="white" opacity="0.2"/><circle cx="900" cy="800" r="2" fill="white" opacity="0.3"/></svg>') repeat;
+    z-index: -1;
+    opacity: 0.1; /* Subtelny efekt gwiazd */
 }
 
 /* Header i nawigacja */
 header {
     background-color: #000000;
-    border-bottom: 2px solid #ff0000; /* Czerwony akcent */
-    padding: 10px 0;
+    border-bottom: 2px solid #ff0000; /* Czerwony akcent w menu */
+    padding: 8px 0; /* Mniejszy padding dla schludniejszego wyglądu */
     position: fixed;
     width: 100%;
     top: 0;
@@ -28,18 +46,18 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: flex-start; /* Opcje od lewej do prawej */
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 nav ul li {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ff0000; /* Czerwony kolor linków */
+    color: #ff0000; /* Czerwony kolor linków w menu */
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
@@ -55,6 +73,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #1a1a1a; /* Całkowicie czarne tło */
 }
 
 #particles-js {
@@ -71,25 +90,25 @@ nav ul li a:hover {
 }
 
 .home-container h1 {
-    font-size: 48px;
+    font-size: 60px; /* Większy napis */
     color: #ffffff;
-    margin-bottom: 40px;
-    text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px #666; /* Szary cień zamiast czerwonego */
 }
 
 .button-group {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .btn {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 12px 25px; /* Mniejsze przyciski dla schludniejszego wyglądu */
     background-color: #ff0000; /* Czerwony przycisk */
     color: #ffffff;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.3s;
@@ -102,76 +121,76 @@ nav ul li a:hover {
 
 /* Kontener główny dla podstron */
 .container {
-    max-width: 1200px;
-    margin: 80px auto 20px auto; /* Margines górny, aby nie nachodził na header */
-    padding: 0 20px;
+    max-width: 1000px; /* Węższy kontener dla bardziej minimalistycznego wyglądu */
+    margin: 70px auto 20px auto; /* Mniejszy margines górny */
+    padding: 0 15px;
 }
 
 /* Nagłówki */
 h1, h2, h3 {
-    color: #ff0000; /* Czerwone nagłówki */
-    margin-bottom: 20px;
+    color: #ff0000; /* Czerwone nagłówki jako akcent */
+    margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 32px; /* Mniejszy nagłówek dla schludniejszego wyglądu */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 h2 {
-    font-size: 28px;
+    font-size: 24px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 2px solid #ff0000; /* Czerwona linia pod nagłówkiem */
+    letter-spacing: 1px;
+    border-bottom: 1px solid #ff0000; /* Czerwona linia pod nagłówkiem */
     padding-bottom: 5px;
 }
 
 h3 {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 /* Projekty */
 .project {
-    margin-bottom: 30px;
-    padding: 15px;
-    border-left: 4px solid #ff0000; /* Czerwony akcent z lewej strony */
-    background-color: #2a2a2a; /* Lekko jaśniejsze tło dla projektu */
+    margin-bottom: 20px;
+    padding: 10px;
+    border-left: 3px solid #666; /* Szary akcent zamiast czerwonego */
+    background-color: #333; /* Ciemniejsze tło dla sekcji */
     border-radius: 5px;
     transition: transform 0.3s;
 }
 
 .project:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .project p {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 /* Lista w Certifications & Courses */
 ul {
     list-style-type: disc;
     margin-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 /* Sekcja About Me */
 .about-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
 .about-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 .about-text {
@@ -179,11 +198,11 @@ ul li {
 }
 
 .about-text p {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .about-text a {
-    color: #ff0000;
+    color: #ff0000; /* Czerwony kolor linków jako akcent */
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -193,14 +212,14 @@ ul li {
 }
 
 .about-photo {
-    flex: 0 0 300px;
+    flex: 0 0 250px; /* Mniejsze zdjęcie dla schludniejszego wyglądu */
 }
 
 .profile-photo {
     max-width: 100%;
     border-radius: 50%;
-    border: 3px solid #ff0000; /* Czerwona ramka wokół zdjęcia */
-    opacity: 0.9; /* Lekko wtopione w tło */
+    border: 2px solid #666; /* Szara ramka zamiast czerwonej */
+    opacity: 0.9;
     transition: opacity 0.3s;
 }
 
@@ -212,26 +231,26 @@ ul li {
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
-        padding: 10px;
+        padding: 8px;
     }
 
     nav ul li {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         margin-right: 0;
     }
 
     .container {
-        margin-top: 120px; /* Większy margines na mniejszych ekranach */
+        margin-top: 100px;
     }
 
     .button-group {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
 
     .btn {
         padding: 10px 20px;
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .about-content {
@@ -240,10 +259,10 @@ ul li {
     }
 
     .about-photo {
-        flex: 0 0 200px;
+        flex: 0 0 180px;
     }
 
     .home-container h1 {
-        font-size: 36px;
+        font-size: 40px;
     }
 }
