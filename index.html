@@ -16,7 +16,7 @@
 
     <!-- Main Section -->
     <div class="home-container">
-        <h1 class="typing-effect">OSKAR CHUDOBA</h1>
+        <h1 id="typing-effect">OSKAR CHUDOBA</h1>
         <div class="button-group">
             <a href="projects.html" class="btn">Projects</a>
             <a href="certifications.html" class="btn">Certifications & Courses</a>
@@ -26,5 +26,38 @@
 
     <!-- Skrypt dla efektu Matrix -->
     <script src="js/matrix.js"></script>
+    <!-- Skrypt dla efektu pisania -->
+    <script>
+        const textElement = document.getElementById('typing-effect');
+        const text = textElement.textContent;
+        textElement.textContent = ''; // Czyścimy początkowy tekst
+
+        let index = 0;
+        let isCursorVisible = true;
+
+        function type() {
+            if (index < text.length) {
+                textElement.textContent = text.substring(0, index + 1);
+                index++;
+                setTimeout(type, 200); // Szybkość pisania (200ms na literę)
+            } else {
+                // Po zakończeniu pisania ukrywamy kursor
+                isCursorVisible = false;
+                textElement.style.borderRight = 'none';
+            }
+        }
+
+        // Funkcja do migania kursora
+        function blinkCursor() {
+            if (isCursorVisible) {
+                textElement.style.borderRight = textElement.style.borderRight === '3px solid #ff0000' ? 'none' : '3px solid #ff0000';
+                setTimeout(blinkCursor, 500); // Szybkość migania kursora (500ms)
+            }
+        }
+
+        // Uruchomienie animacji
+        type();
+        blinkCursor();
+    </script>
 </body>
 </html>
