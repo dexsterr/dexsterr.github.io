@@ -35,6 +35,7 @@
         let index = 0;
         let isCursorVisible = true;
 
+        // Funkcja do pisania liter
         function type() {
             if (index < text.length) {
                 textElement.textContent = text.substring(0, index + 1);
@@ -43,14 +44,14 @@
             } else {
                 // Po zakończeniu pisania ukrywamy kursor
                 isCursorVisible = false;
-                textElement.style.borderRight = 'none';
+                textElement.classList.remove('typing-cursor');
             }
         }
 
         // Funkcja do migania kursora
         function blinkCursor() {
             if (isCursorVisible) {
-                textElement.style.borderRight = textElement.style.borderRight === '3px solid #ff0000' ? 'none' : '3px solid #ff0000';
+                textElement.classList.toggle('typing-cursor');
                 setTimeout(blinkCursor, 500); // Szybkość migania kursora (500ms)
             }
         }
