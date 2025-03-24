@@ -15,7 +15,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Tło z "gwiezdnym pyłem" dla podstron (bez zmian) */
+/* Tło z "gwiezdnym pyłem" dla podstron */
 body:not(.home-page) {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
@@ -109,6 +109,13 @@ nav ul li a:hover {
     color: #ff0000;
     margin-left: 5px;
     font-weight: bold;
+    animation: blink 0.5s step-end infinite; /* Miganie kursora */
+}
+
+/* Animacja migania kursora */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .button-group {
