@@ -7,88 +7,60 @@
 
 /* Ogólne style */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Czcionka w stylu cyberpunk */
     background-color: #1a1a1a; /* Ciemne tło */
     color: #ffffff; /* Biały tekst */
     line-height: 1.6;
     position: relative;
-    overflow-x: hidden; /* Zapobiega przewijaniu w poziomie */
+    overflow-x: hidden;
 }
 
-/* Animowane tło dla podstron (oprócz strony głównej) */
-body:not(.home-page) {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); /* Delikatny gradient */
-}
-
-/* Pseudo-elementy dla animowanych kształtów */
-body:not(.home-page)::before,
-body:not(.home-page)::after {
-    content: '';
+/* Matrix rain canvas */
+#matrix-rain {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    pointer-events: none; /* Zapobiega interakcji z tłem */
-}
-
-/* Pierwsza warstwa: Pływające trójkąty */
-body:not(.home-page)::before {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><polygon points="25,5 45,45 5,45" fill="rgba(255, 0, 0, 0.1)" /></svg>') repeat;
-    animation: floatShapes 30s linear infinite;
-    opacity: 0.2;
-}
-
-/* Druga warstwa: Pływające linie */
-body:not(.home-page)::after {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><line x1="0" y1="30" x2="60" y2="30" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" /></svg>') repeat;
-    animation: floatShapes 40s linear infinite reverse;
-    opacity: 0.15;
-}
-
-/* Animacja dla pływających kształtów */
-@keyframes floatShapes {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-    }
-    100% {
-        transform: translateY(-100vh) rotate(360deg);
-    }
+    background-color: #1a1a1a;
 }
 
 /* Header i nawigacja */
 header {
     background-color: #000000;
-    border-bottom: 2px solid #ff0000; /* Czerwony akcent w menu */
-    padding: 8px 0;
+    padding: 20px;
     position: fixed;
-    width: 100%;
+    height: 100vh;
+    width: 200px; /* Pionowe menu po lewej */
     top: 0;
+    left: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: flex-start;
-    padding: 0 15px;
-}
-
-nav ul li {
-    margin-right: 15px;
+    flex-direction: column; /* Pionowe menu */
+    gap: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #ff0000; /* Czerwony kolor linków w menu */
+    color: #680404; /* Nowy kolor czerwony */
     font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5); /* Czerwony glow */
 }
 
 nav ul li a:hover {
-    color: #cc0000;
+    color: #ffffff;
+    text-shadow: 0 0 10px #680404, 0 0 20px #680404; /* Mocniejszy glow przy najechaniu */
 }
 
 /* Strona główna */
@@ -99,7 +71,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a; /* Całkowicie czarne tło */
+    background-color: #1a1a1a;
 }
 
 #particles-js {
@@ -119,7 +91,7 @@ nav ul li a:hover {
     font-size: 60px;
     color: #ffffff;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 4px #666; /* Szary cień */
+    text-shadow: 0 0 10px #680404, 0 0 20px #680404; /* Czerwony glow */
 }
 
 .button-group {
@@ -131,33 +103,37 @@ nav ul li a:hover {
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #ff0000; /* Czerwony przycisk */
-    color: #ffffff;
+    background-color: transparent;
+    color: #680404;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
+    border: 2px solid #680404;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: color 0.3s, background-color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
 }
 
 .btn:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
+    background-color: #680404;
+    color: #ffffff;
+    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
 }
 
 /* Kontener główny dla podstron */
 .container {
     max-width: 1000px;
-    margin: 70px auto 20px auto;
+    margin: 20px 20px 20px 220px; /* Margines z lewej strony dla menu */
     padding: 0 15px;
     position: relative;
-    z-index: 1; /* Upewniamy się, że treść jest nad tłem */
+    z-index: 1;
 }
 
 /* Nagłówki */
 h1, h2, h3 {
-    color: #ff0000; /* Czerwone nagłówki jako akcent */
+    color: #680404; /* Czerwone nagłówki */
     margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5); /* Czerwony glow */
 }
 
 h1 {
@@ -170,7 +146,7 @@ h2 {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid #ff0000;
+    border-bottom: 1px solid #680404;
     padding-bottom: 5px;
 }
 
@@ -230,13 +206,15 @@ ul li {
 }
 
 .about-text a {
-    color: #ff0000;
+    color: #680404;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
+    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
 }
 
 .about-text a:hover {
-    color: #cc0000;
+    color: #ffffff;
+    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
 }
 
 .about-photo {
@@ -255,20 +233,37 @@ ul li {
     opacity: 1;
 }
 
+/* Fade transition */
+.fade {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
 /* Responsywność */
 @media (max-width: 768px) {
+    header {
+        width: 100%;
+        height: auto;
+        position: static;
+        padding: 10px;
+    }
+
     nav ul {
-        flex-direction: column;
-        padding: 8px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
     }
 
     nav ul li {
-        margin-bottom: 8px;
-        margin-right: 0;
+        margin-right: 10px;
     }
 
     .container {
-        margin-top: 100px;
+        margin: 20px;
     }
 
     .button-group {
