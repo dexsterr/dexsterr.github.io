@@ -12,30 +12,56 @@ body {
     color: #ffffff; /* Biały tekst */
     line-height: 1.6;
     position: relative;
+    overflow-x: hidden; /* Zapobiega przewijaniu w poziomie */
 }
 
-/* Subtelne tło z "gwiezdnym pyłem" dla podstron */
+/* Animowane tło dla podstron (oprócz strony głównej) */
 body:not(.home-page) {
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); /* Delikatny gradient */
 }
 
-body:not(.home-page)::before {
+/* Pseudo-elementy dla animowanych kształtów */
+body:not(.home-page)::before,
+body:not(.home-page)::after {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000"><circle cx="100" cy="100" r="2" fill="white" opacity="0.3"/><circle cx="300" cy="200" r="1" fill="white" opacity="0.2"/><circle cx="500" cy="600" r="2" fill="white" opacity="0.3"/><circle cx="700" cy="300" r="1" fill="white" opacity="0.2"/><circle cx="900" cy="800" r="2" fill="white" opacity="0.3"/></svg>') repeat;
     z-index: -1;
-    opacity: 0.1; /* Subtelny efekt gwiazd */
+    pointer-events: none; /* Zapobiega interakcji z tłem */
+}
+
+/* Pierwsza warstwa: Pływające trójkąty */
+body:not(.home-page)::before {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><polygon points="25,5 45,45 5,45" fill="rgba(255, 0, 0, 0.1)" /></svg>') repeat;
+    animation: floatShapes 30s linear infinite;
+    opacity: 0.2;
+}
+
+/* Druga warstwa: Pływające linie */
+body:not(.home-page)::after {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><line x1="0" y1="30" x2="60" y2="30" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" /></svg>') repeat;
+    animation: floatShapes 40s linear infinite reverse;
+    opacity: 0.15;
+}
+
+/* Animacja dla pływających kształtów */
+@keyframes floatShapes {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
 }
 
 /* Header i nawigacja */
 header {
     background-color: #000000;
     border-bottom: 2px solid #ff0000; /* Czerwony akcent w menu */
-    padding: 8px 0; /* Mniejszy padding dla schludniejszego wyglądu */
+    padding: 8px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -45,7 +71,7 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: flex-start; /* Opcje od lewej do prawej */
+    justify-content: flex-start;
     padding: 0 15px;
 }
 
@@ -62,7 +88,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #cc0000; /* Ciemniejszy czerwony przy najechaniu */
+    color: #cc0000;
 }
 
 /* Strona główna */
@@ -80,7 +106,7 @@ nav ul li a:hover {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #1a1a1a; /* Ciemne tło dla cząsteczek */
+    background-color: #1a1a1a;
     z-index: 1;
 }
 
@@ -90,10 +116,10 @@ nav ul li a:hover {
 }
 
 .home-container h1 {
-    font-size: 60px; /* Większy napis */
+    font-size: 60px;
     color: #ffffff;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 4px #666; /* Szary cień zamiast czerwonego */
+    text-shadow: 2px 2px 4px #666; /* Szary cień */
 }
 
 .button-group {
@@ -104,7 +130,7 @@ nav ul li a:hover {
 
 .btn {
     display: inline-block;
-    padding: 12px 25px; /* Mniejsze przyciski dla schludniejszego wyglądu */
+    padding: 12px 25px;
     background-color: #ff0000; /* Czerwony przycisk */
     color: #ffffff;
     text-decoration: none;
@@ -115,15 +141,17 @@ nav ul li a:hover {
 }
 
 .btn:hover {
-    background-color: #cc0000; /* Ciemniejszy czerwony przy najechaniu */
+    background-color: #cc0000;
     transform: scale(1.05);
 }
 
 /* Kontener główny dla podstron */
 .container {
-    max-width: 1000px; /* Węższy kontener dla bardziej minimalistycznego wyglądu */
-    margin: 70px auto 20px auto; /* Mniejszy margines górny */
+    max-width: 1000px;
+    margin: 70px auto 20px auto;
     padding: 0 15px;
+    position: relative;
+    z-index: 1; /* Upewniamy się, że treść jest nad tłem */
 }
 
 /* Nagłówki */
@@ -133,7 +161,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 32px; /* Mniejszy nagłówek dla schludniejszego wyglądu */
+    font-size: 32px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -142,7 +170,7 @@ h2 {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid #ff0000; /* Czerwona linia pod nagłówkiem */
+    border-bottom: 1px solid #ff0000;
     padding-bottom: 5px;
 }
 
@@ -154,8 +182,8 @@ h3 {
 .project {
     margin-bottom: 20px;
     padding: 10px;
-    border-left: 3px solid #666; /* Szary akcent zamiast czerwonego */
-    background-color: #333; /* Ciemniejsze tło dla sekcji */
+    border-left: 3px solid #666;
+    background-color: #333;
     border-radius: 5px;
     transition: transform 0.3s;
 }
@@ -202,7 +230,7 @@ ul li {
 }
 
 .about-text a {
-    color: #ff0000; /* Czerwony kolor linków jako akcent */
+    color: #ff0000;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -212,13 +240,13 @@ ul li {
 }
 
 .about-photo {
-    flex: 0 0 250px; /* Mniejsze zdjęcie dla schludniejszego wyglądu */
+    flex: 0 0 250px;
 }
 
 .profile-photo {
     max-width: 100%;
     border-radius: 50%;
-    border: 2px solid #666; /* Szara ramka zamiast czerwonej */
+    border: 2px solid #666;
     opacity: 0.9;
     transition: opacity 0.3s;
 }
