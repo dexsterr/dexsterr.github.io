@@ -7,9 +7,9 @@
 
 /* Ogólne style */
 body {
-    font-family: 'Roboto', sans-serif; /* Domyślny font dla treści */
-    background-color: #1a1a1a; /* Ciemne tło */
-    color: #ffffff; /* Biały tekst */
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
@@ -74,7 +74,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a; /* Całkowicie czarne tło */
+    background-color: #1a1a1a;
 }
 
 /* Styl dla kanwy efektu Matrix */
@@ -85,7 +85,7 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: #1a1a1a; /* Czarne tło od razu */
+    background-color: #1a1a1a;
 }
 
 .home-container {
@@ -95,15 +95,27 @@ nav ul li a:hover {
 
 /* Styl dla napisu "OSKAR CHUDOBA" */
 .home-container h1 {
-    font-family: 'Montserrat', sans-serif; /* Nowoczesny font */
+    font-family: 'Montserrat', sans-serif;
     font-size: 60px;
-    color: #ffffff;
+    color: #ffffff; /* Biały kolor */
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px #333; /* Subtelniejszy szary cień */
-    overflow: hidden; /* Dla efektu pisania */
-    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
-    border-right: 3px solid #ff0000; /* Kursor pisania */
-    animation: typing 3s steps(12, end), blink-caret 0.75s step-end infinite;
+    text-shadow: 2px 2px 4px #333;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #ff0000;
+    animation: typing 3s steps(12, end), blink-caret 0.75s step-end infinite, pulse 2s infinite;
+}
+
+/* Styl dla napisu "Portfolio" */
+.home-container .subtitle {
+    font-family: 'Montserrat', sans-serif; /* Ten sam font co dla tytułu */
+    font-size: 20px;
+    color: #ffffff; /* Biały kolor */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #333; /* Mniejszy cień, ale w tym samym stylu */
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards, pulse 2s infinite;
+    animation-delay: 3s;
 }
 
 /* Efekt pisania */
@@ -118,21 +130,17 @@ nav ul li a:hover {
     50% { border-color: #ff0000; }
 }
 
-/* Styl dla napisu "Portfolio" */
-.home-container .subtitle {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    color: #cccccc; /* Jasnoszary kolor dla kontrastu */
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-    animation-delay: 3s; /* Pojawia się po zakończeniu efektu pisania */
-}
-
 /* Efekt pojawiania się */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efekt pulsowania (dodatkowa animacja) */
+@keyframes pulse {
+    0% { text-shadow: 2px 2px 4px #333; }
+    50% { text-shadow: 2px 2px 8px #ff0000; }
+    100% { text-shadow: 2px 2px 4px #333; }
 }
 
 .button-group {
