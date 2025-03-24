@@ -7,40 +7,35 @@
 
 /* Ogólne style */
 body {
-    font-family: 'Orbitron', sans-serif; /* Czcionka w stylu cyberpunk */
-    background-color: #1a1a1a; /* Czarne tło */
+    font-family: 'Roboto', sans-serif; /* Domyślny font dla treści */
+    background-color: #1a1a1a; /* Ciemne tło */
     color: #ffffff; /* Biały tekst */
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Matrix rain canvas */
-#matrix-rain {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: #1a1a1a; /* Czarne tło */
+/* Tło z "gwiezdnym pyłem" dla podstron (bez zmian) */
+body:not(.home-page) {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
 }
 
-/* Particles.js container */
-#particles-js {
+body:not(.home-page)::before {
+    content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000"><circle cx="100" cy="100" r="2" fill="white" opacity="0.3"/><circle cx="300" cy="200" r="1" fill="white" opacity="0.2"/><circle cx="500" cy="600" r="2" fill="white" opacity="0.3"/><circle cx="700" cy="300" r="1" fill="white" opacity="0.2"/><circle cx="900" cy="800" r="2" fill="white" opacity="0.3"/></svg>') repeat;
     z-index: -1;
-    background-color: #1a1a1a; /* Czarne tło */
+    opacity: 0.1;
 }
 
 /* Header i nawigacja */
 header {
     background-color: #000000;
-    border-bottom: 2px solid #680404; /* Czerwony akcent */
+    border-bottom: 2px solid #ff0000;
     padding: 8px 0;
     position: fixed;
     width: 100%;
@@ -51,24 +46,24 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Menu na górze, wyśrodkowane */
+    justify-content: flex-start;
     padding: 0 15px;
-    gap: 20px;
+}
+
+nav ul li {
+    margin-right: 15px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #680404;
+    color: #ff0000;
     font-weight: bold;
     font-size: 16px;
-    text-transform: uppercase;
-    transition: color 0.3s, text-shadow 0.3s;
-    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
+    color: #cc0000;
 }
 
 /* Strona główna */
@@ -79,7 +74,18 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1a1a1a; /* Czarne tło */
+    background-color: #1a1a1a; /* Całkowicie czarne tło */
+}
+
+/* Styl dla kanwy efektu Matrix */
+#matrixCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #1a1a1a; /* Czarne tło od razu */
 }
 
 .home-container {
@@ -87,23 +93,46 @@ nav ul li a:hover {
     z-index: 2;
 }
 
+/* Styl dla napisu "OSKAR CHUDOBA" */
 .home-container h1 {
+    font-family: 'Montserrat', sans-serif; /* Nowoczesny font */
     font-size: 60px;
-    background: linear-gradient(45deg, #680404, #ffffff); /* Gradientowy kolor tekstu */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 30px;
-    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
-    animation: pulseGlow 2s infinite alternate; /* Pulsujący efekt glow */
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #333; /* Subtelniejszy szary cień */
+    overflow: hidden; /* Dla efektu pisania */
+    white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+    border-right: 3px solid #ff0000; /* Kursor pisania */
+    animation: typing 3s steps(12, end), blink-caret 0.75s step-end infinite;
 }
 
-@keyframes pulseGlow {
-    0% {
-        text-shadow: 0 0 10px #680404, 0 0 20px #680404;
-    }
-    100% {
-        text-shadow: 0 0 15px #680404, 0 0 30px #680404;
-    }
+/* Efekt pisania */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Efekt migającego kursora */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff0000; }
+}
+
+/* Styl dla napisu "Portfolio" */
+.home-container .subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #cccccc; /* Jasnoszary kolor dla kontrastu */
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 3s; /* Pojawia się po zakończeniu efektu pisania */
+}
+
+/* Efekt pojawiania się */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .button-group {
@@ -115,21 +144,18 @@ nav ul li a:hover {
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: transparent;
-    color: #680404;
+    background-color: #ff0000;
+    color: #ffffff;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    border: 2px solid #680404;
     border-radius: 5px;
-    transition: color 0.3s, background-color 0.3s, text-shadow 0.3s;
-    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn:hover {
-    background-color: #680404;
-    color: #ffffff;
-    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
+    background-color: #cc0000;
+    transform: scale(1.05);
 }
 
 /* Kontener główny dla podstron */
@@ -143,9 +169,8 @@ nav ul li a:hover {
 
 /* Nagłówki */
 h1, h2, h3 {
-    color: #680404;
+    color: #ff0000;
     margin-bottom: 15px;
-    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
 }
 
 h1 {
@@ -158,33 +183,8 @@ h2 {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid #680404;
+    border-bottom: 1px solid #ff0000;
     padding-bottom: 5px;
-    position: relative;
-}
-
-h2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(104, 4, 4, 0.1), transparent);
-    z-index: -1;
-    animation: pulseLine 3s infinite;
-}
-
-@keyframes pulseLine {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 0.3;
-    }
 }
 
 h3 {
@@ -199,19 +199,6 @@ h3 {
     background-color: #333;
     border-radius: 5px;
     transition: transform 0.3s;
-    position: relative;
-}
-
-.project::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent);
-    z-index: -1;
-    animation: pulseSection 4s infinite;
 }
 
 .project:hover {
@@ -222,36 +209,11 @@ h3 {
     margin-bottom: 8px;
 }
 
-@keyframes pulseSection {
-    0% {
-        opacity: 0.2;
-    }
-    50% {
-        opacity: 0.4;
-    }
-    100% {
-        opacity: 0.2;
-    }
-}
-
 /* Lista w Certifications & Courses */
 ul {
     list-style-type: disc;
     margin-left: 20px;
     margin-bottom: 20px;
-    position: relative;
-}
-
-ul::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(104, 4, 4, 0.1), transparent);
-    z-index: -1;
-    animation: pulseSection 4s infinite;
 }
 
 ul li {
@@ -281,15 +243,13 @@ ul li {
 }
 
 .about-text a {
-    color: #680404;
+    color: #ff0000;
     text-decoration: none;
-    transition: color 0.3s, text-shadow 0.3s;
-    text-shadow: 0 0 5px rgba(104, 4, 4, 0.5);
+    transition: color 0.3s;
 }
 
 .about-text a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 10px #680404, 0 0 20px #680404;
+    color: #cc0000;
 }
 
 .about-photo {
@@ -304,4 +264,50 @@ ul li {
     transition: opacity 0.3s;
 }
 
-.profile-phot
+.profile-photo:hover {
+    opacity: 1;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    nav ul li {
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+
+    .container {
+        margin-top: 100px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-photo {
+        flex: 0 0 180px;
+    }
+
+    .home-container h1 {
+        font-size: 40px;
+    }
+
+    .home-container .subtitle {
+        font-size: 16px;
+    }
+}
