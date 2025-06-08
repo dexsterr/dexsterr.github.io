@@ -93,7 +93,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-green-800/20 rounded-full animate-pulse" />
               <div className="absolute inset-4 cyber-border rounded-full bg-black/50 overflow-hidden">
                 <img 
-                  src="/lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png" 
+                  src="/lovable-uploads/g-ezgif.com-video-to-gif-converter.gif" 
                   alt="Oskar's Avatar" 
                   className="w-full h-full object-cover object-top rounded-full"
                 />
