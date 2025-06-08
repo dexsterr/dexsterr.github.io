@@ -12,25 +12,25 @@ const TypingAnimation = () => {
     let timeout: NodeJS.Timeout;
 
     if (isTyping) {
-      // Typing effect
+
       if (displayedText.length < currentText.length) {
         timeout = setTimeout(() => {
           setDisplayedText(currentText.slice(0, displayedText.length + 1));
         }, 100);
       } else {
-        // Wait 3 seconds then start erasing
+    
         timeout = setTimeout(() => {
           setIsTyping(false);
         }, 3000);
       }
     } else {
-      // Erasing effect
+ 
       if (displayedText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayedText(displayedText.slice(0, -1));
         }, 50);
       } else {
-        // Move to next text
+   
         setCurrentTextIndex((prev) => (prev + 1) % texts.length);
         setIsTyping(true);
       }

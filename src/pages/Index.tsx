@@ -65,7 +65,7 @@ const Index = () => {
             
             <p className="text-gray-300 text-lg leading-relaxed max-w-lg">
               Exploring the depths of cybersecurity, one challenge at a time. 
-              Focused on ethical hacking, network security, and building secure systems.
+              Focused on ethical hacking, SOC Analyst, and building secure systems.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">

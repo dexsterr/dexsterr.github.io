@@ -4,10 +4,10 @@ import { Shield, Lock, Zap, Eye } from 'lucide-react';
 const CyberBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Circuit pattern overlay */}
+      {}
       <div className="absolute inset-0 cyber-pattern opacity-30" />
       
-      {/* Floating icons */}
+      {}
       <div className="absolute top-20 right-20 text-green-500/20 animate-pulse">
         <Shield size={80} />
       </div>
@@ -21,7 +21,7 @@ const CyberBackground = () => {
         <Eye size={50} />
       </div>
       
-      {/* Grid lines */}
+      {}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
