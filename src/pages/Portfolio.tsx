@@ -9,14 +9,14 @@ const Portfolio = () => {
       title: "Network Security Scanner",
       description: "A comprehensive network vulnerability scanner built with Python. Detects open ports, services, and potential security issues.",
       technologies: ["Python", "Nmap", "Scapy", "Network Security"],
-      github: "https://github.com/dexsterr/network-scanner",
+      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
       icon: Network,
     },
     {
       title: "Web Application Penetration Testing Tool",
       description: "Automated tool for detecting common web vulnerabilities including SQL injection, XSS, and CSRF attacks.",
       technologies: ["Python", "Requests", "BeautifulSoup", "Web Security"],
-      github: "https://github.com/dexsterr/web-pentest-tool",
+      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
       icon: Shield,
     },
     {
@@ -30,7 +30,7 @@ const Portfolio = () => {
       title: "Security Audit Automation Script",
       description: "Automated security audit script for Linux systems. Checks for common misconfigurations and security issues.",
       technologies: ["Bash", "Linux", "System Security", "Automation"],
-      github: "https://github.com/dexsterr/security-audit",
+      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
       icon: Code,
     },
   ];
