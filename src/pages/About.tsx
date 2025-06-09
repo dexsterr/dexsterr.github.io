@@ -136,17 +136,19 @@ const About = () => {
                     )}
                     <p className="text-gray-400 text-sm">{course.provider}</p>
                   </div>
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm ml-4 ${
-                      course.status === '2024'
-                        ? 'bg-green-500/20 text-green-400'
-                        : course.status === 'Still Learning'
-                        ? 'bg-yellow-500/20 text-yellow-400'
-                        : 'bg-blue-500/20 text-blue-400'
-                    }`}
-                  >
-                    {course.status}
-                  </span>
+<span
+  className={`px-3 py-1 rounded-full text-sm ml-4
+    ${course.status === 'Planned'
+      ? 'bg-green-600 text-white'
+      : (course.status === '2024' || course.status === '2025')
+      ? 'bg-blue-600 text-white'
+      : course.status === 'Still Learning'
+      ? 'bg-yellow-500/20 text-yellow-400'
+      : 'bg-blue-500/20 text-blue-400'
+    }`}
+>
+  {course.status}
+</span>
                 </div>
               ))}
             </div>
