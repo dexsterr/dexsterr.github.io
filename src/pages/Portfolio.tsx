@@ -13,10 +13,10 @@ const Portfolio = () => {
       icon: Network,
     },
     {
-      title: "Web Application Penetration Testing Tool",
-      description: "Automated tool for detecting common web vulnerabilities including SQL injection, XSS, and CSRF attacks.",
-      technologies: ["Python", "Requests", "BeautifulSoup", "Web Security"],
-      github: "https://github.com/dexsterr/web-pentest-tool",
+      title: "Telegram Data Collector",
+      description: "A tool that uses OTP codes to log into Telegram accounts, extract files and conversations, and update data in real-time via Telegram API.",
+      technologies: ["Python", "Telegram API", "Data Collection", "Real-time Updates"],
+      github: "https://github.com/dexsterr/Telegram-Data-Collector",
       icon: Shield,
     },
     {
@@ -27,10 +27,10 @@ const Portfolio = () => {
       icon: Database,
     },
     {
-      title: "Security Audit Automation Script",
-      description: "Automated security audit script for Linux systems. Checks for common misconfigurations and security issues.",
-      technologies: ["Bash", "Linux", "System Security", "Automation"],
-      github: "https://github.com/dexsterr/security-audit",
+      title: "Web Application Penetration Testing Tool",
+      description: "Automated tool for detecting common web vulnerabilities including SQL injection, XSS, and CSRF attacks.",
+      technologies: ["Python", "Requests", "BeautifulSoup", "Web Security"],
+      github: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
     },
   ];
