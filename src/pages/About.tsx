@@ -20,7 +20,7 @@ const About = () => {
     {
       name: "Networking by Steve Tarzia",
       provider: "Steve Tarzia",
-      status: "Still Learning",
+      status: "Planned",
       link: "https://www.youtube.com/watch?si=UnM3GgNtD4NGrK1k&v=EN0efud3M5U&feature=youtu.be"
     },
     {
