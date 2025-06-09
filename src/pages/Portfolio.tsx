@@ -23,7 +23,7 @@ const Portfolio = () => {
       title: "Encrypted Password Manager",
       description: "Secure password manager with AES encryption, master password protection, and secure password generation.",
       technologies: ["Python", "Cryptography", "SQLite", "Tkinter"],
-      github: "https://github.com/dexsterr/password-manager",
+      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
       icon: Database,
     },
     {
