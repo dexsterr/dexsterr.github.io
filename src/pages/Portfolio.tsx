@@ -33,20 +33,6 @@ const Portfolio = () => {
       github: "https://github.com/dexsterr/Encrypted-Password-Manager",
       icon: Code,
     },
-    {
-      title: "Security Audit Automation Script",
-      description: "Automated security audit script for Linux systems. Checks for common misconfigurations and security issues.",
-      technologies: ["Bash", "Linux", "System Security", "Automation"],
-      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
-      icon: Code,
-    },
-    {
-      title: "Security Audit Automation Script",
-      description: "Automated security audit script for Linux systems. Checks for common misconfigurations and security issues.",
-      technologies: ["Bash", "Linux", "System Security", "Automation"],
-      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
-      icon: Code,
-    },
 
   ];
 
