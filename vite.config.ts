@@ -6,11 +6,11 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    hmr: true, // Jawne włączenie Hot Module Replacement
+    hmr: true, // Jawne włączenie HMR
   },
   plugins: [
     react(),
-    // Tymczasowo wyłączamy componentTagger, aby sprawdzić, czy to źródło problemu
+    // Wyłączamy lovable-tagger, aby uniknąć konfliktów
     // mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
