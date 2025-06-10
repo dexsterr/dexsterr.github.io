@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin } from 'lucide-react';
+import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin, Eye } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 
@@ -8,29 +8,29 @@ const Portfolio = () => {
     {
       title: "Network Security Scanner",
       description: "A comprehensive network vulnerability scanner built with Python. Detects open ports, services, and potential security issues.",
-      technologies: ["Python", "Nmap", "Scapy", "Network Security"],
-      github: "https://github.com/dexsterr/Network-Security-Scanner",
+      technologies: ["Python", "Nmap", "Scapy"],
+      codeLink: "https://github.com/dexsterr/network-security-scanner",
       icon: Network,
     },
     {
       title: "Telegram Data Collector",
       description: "A tool that uses OTP codes to log into Telegram accounts, extract files and conversations, and update data in real-time via Telegram API.",
-      technologies: ["Python", "Telegram API", "Data Collection", "Real-time Updates"],
-      github: "https://github.com/dexsterr/Telegram-Data-Collector",
-      icon: Shield,
-    },
-    {
-      title: "Encrypted Password Manager",
-      description: "Secure password manager with AES encryption, master password protection, and secure password generation.",
-      technologies: ["Python", "Cryptography", "SQLite", "Tkinter"],
-      github: "https://github.com/dexsterr/Encrypted-Password-Manager",
+      technologies: ["Python", "Telegram API", "Data Collection"],
+      codeLink: "https://github.com/dexsterr/telegram-data-collector",
       icon: Database,
     },
     {
+      title: "Encrypted Password Manager",
+      description: "A secure password manager with AES encryption, master password protection, and secure password generation, requiring user authentication.",
+      technologies: ["Python", "Cryptography", "SQLite"],
+      codeLink: "https://github.com/dexsterr/encrypted-password-manager",
+      icon: Shield,
+    },
+    {
       title: "Web Application Penetration Testing Tool",
-      description: "Automated tool for detecting common web vulnerabilities including SQL injection, XSS, and CSRF attacks.",
-      technologies: ["Python", "Requests", "BeautifulSoup", "Web Security"],
-      github: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
+      description: "An automated tool for detecting common web vulnerabilities including SQL injection, XSS, and CSRF attacks.",
+      technologies: ["Python", "Requests", "BeautifulSoup"],
+      codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
     },
   ];
@@ -100,24 +100,24 @@ const Portfolio = () => {
               
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, techIndex) => (
-                  <span
+                  <button
                     key={techIndex}
-                    className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full"
+                    className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full cyber-border hover:bg-green-500/30 hover:text-green-300 transition-colors"
                   >
                     {tech}
-                  </span>
+                  </button>
                 ))}
               </div>
               
-              <div className="flex space-x-4">
+              <div className="flex">
                 <a
-                  href={project.github}
+                  href={project.codeLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors"
                 >
-                  <ExternalLink size={18} />
-                  <span>Live Demo</span>
+                  <Github size={18} />
+                  <span>Code</span>
                 </a>
               </div>
             </div>

@@ -1,15 +1,29 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Terminal, Github, Linkedin, Code } from 'lucide-react';
+import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import TypingAnimation from '../components/TypingAnimation';
+import MatrixAnimation from '../components/MatrixAnimation';
 
 const Index = () => {
+  const [showMatrix, setShowMatrix] = useState(false);
+
+  const handleAvatarClick = () => {
+    setShowMatrix(true);
+  };
+
+  const handleMatrixComplete = () => {
+    setShowMatrix(false);
+  };
+
   return (
     <div className="min-h-screen cyber-bg relative">
       <Navigation />
       <CyberBackground />
+      
+      {/* Matrix Animation Overlay */}
+      <MatrixAnimation isActive={showMatrix} onComplete={handleMatrixComplete} />
       
       {/* Social Links - Bottom Left */}
       <div className="fixed bottom-6 left-6 z-50 flex flex-col space-y-3">
@@ -87,18 +101,21 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Right Content - Decorative */}
+          {/* Right Content - Clickable Avatar */}
           <div className="hidden lg:block relative">
             <div className="w-96 h-96 mx-auto relative">
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-green-800/20 rounded-full animate-pulse" />
-              <div className="absolute inset-4 cyber-border rounded-full bg-black/50 overflow-hidden">
+              <div 
+                className="absolute inset-4 cyber-border rounded-full bg-black/50 overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 hover-glow"
+                onClick={handleAvatarClick}
+              >
                 <img 
-                  src="/lovable-uploads/g-ezgif.com-video-to-gif-converter.gif" 
+                  src="/uploads/g-ezgif.com-video-to-gif-converter.gif" 
                   alt="Oskar's Avatar" 
                   className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
-              <div className="absolute inset-8 cyber-border rounded-full bg-transparent" />
+              <div className="absolute inset-8 cyber-border rounded-full bg-transparent pointer-events-none" />
             </div>
           </div>
         </div>
