@@ -7,8 +7,8 @@ const Portfolio = () => {
   const projects = [
     {
       title: "Network Security Scanner",
-      description: "A comprehensive network vulnerability scanner built with Python. Detects open ports, services, and potential security issues.",
-      technologies: ["Python", "Nmap", "Scapy"],
+      description: "A concise network vulnerability scanner built with Python. Detects open ports, services, and potential security issues, identifies devices, and alerts on ARP spoofing.",
+      technologies: ["Python", "Nmap", "Scapy", "Tkinter"],
       codeLink: "https://github.com/dexsterr/network-security-scanner",
       icon: Network,
     },
