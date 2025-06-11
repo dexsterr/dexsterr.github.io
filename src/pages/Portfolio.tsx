@@ -28,7 +28,7 @@ const Portfolio = () => {
     },
     {
       title: "Web Application Penetration Testing Tool",
-      description: "An automated tool for detecting common web vulnerabilities including SQL injection, XSS, and CSRF attacks.",
+      description: "An automated tool for detecting common web vulnerabilities including SQL injection, XSS, CSRF, LFI, RFI, Directory Traversal, and missing HTTP security headers.",
       technologies: ["Python", "Requests", "BeautifulSoup"],
       codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
