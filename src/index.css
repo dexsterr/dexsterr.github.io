@@ -88,9 +88,15 @@
     @apply border-border;
   }
 
-  body {
+  html, body {
     @apply bg-black text-white;
     overflow-x: hidden;
+    height: 100%;
+  }
+
+  #root {
+    min-height: 100vh;
+    background: black;
   }
 }
 
@@ -103,11 +109,12 @@
       linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #001a0d 50%, #0a0a0a 75%, #000000 100%);
     position: relative;
     min-height: 100vh;
+    width: 100%;
   }
   
   .cyber-bg::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -118,11 +125,12 @@
     background-size: 50px 50px;
     pointer-events: none;
     animation: cyber-grid 20s linear infinite;
+    z-index: -2;
   }
 
   .cyber-bg::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -133,6 +141,7 @@
     background-size: 100px 100px;
     pointer-events: none;
     animation: cyber-dots 15s ease-in-out infinite;
+    z-index: -1;
   }
   
   .cyber-pattern {

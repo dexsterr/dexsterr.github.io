@@ -1,5 +1,5 @@
 
-import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin, Eye } from 'lucide-react';
+import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin, Eye, Search, AlertTriangle } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 
@@ -32,6 +32,20 @@ const Portfolio = () => {
       technologies: ["Python", "Requests", "BeautifulSoup"],
       codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
+    },
+    {
+      title: "Login Anomaly Detector",
+      description: "Real-time log analyzer that detects unusual authentication activities, flagging suspicious events like unexpected geolocations and failed login attempts for SOC analysts.",
+      technologies: ["Python", "Log Analysis", "SIEM", "Geolocation"],
+      codeLink: "https://github.com/dexsterr/Login-Anomaly-Detector",
+      icon: Search,
+    },
+    {
+      title: "Security Event Analysis Automation Tool",
+      description: "SOC analyst toolkit that automates IOC investigation, phishing email analysis, brand monitoring, and threat validation to improve incident response times.",
+      technologies: ["Python", "IOC", "Automation", "Threat Intelligence"],
+      codeLink: "https://github.com/dexsterr/Security-Event-Analysis-Automation-Tool",
+      icon: AlertTriangle,
     },
   ];
 
