@@ -28,7 +28,7 @@ const Index = () => {
       {/* Social Links - Bottom Left */}
       <div className="fixed bottom-6 left-6 z-50 flex flex-col space-y-3">
         <a
-          href="https://ctf.hackthebox.com/user/profile/711503"
+          href="https://tryhackme.com/p/0dexster"
           target="_blank"
           rel="noopener noreferrer"
           className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow"
