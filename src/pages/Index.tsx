@@ -6,6 +6,7 @@ import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import TypingAnimation from '../components/TypingAnimation';
 import MatrixAnimation from '../components/MatrixAnimation';
+import SocialLinks from '../components/SocialLinks';
 
 const Index = () => {
   const [showMatrix, setShowMatrix] = useState(false);
@@ -23,40 +24,8 @@ const Index = () => {
       <Navigation />
       <CyberBackground />
       
-      {/* Matrix Animation Overlay */}
-      <MatrixAnimation isActive={showMatrix} onComplete={handleMatrixComplete} />
-      
       {/* Social Links - Bottom Left */}
-      <div className="fixed bottom-6 left-6 z-50 flex flex-col space-y-3">
-        <a
-          href="https://tryhackme.com/p/0dexster"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow flex items-center justify-center"
-        >
-          <img 
-            src="/lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png" 
-            alt="TryHackMe" 
-            className="w-5 h-5 filter hue-rotate-90 saturate-150 brightness-125"
-          />
-        </a>
-        <a
-          href="https://github.com/dexsterr"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow"
-        >
-          <Github size={20} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/oskar-chudoba-474849340/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow"
-        >
-          <Linkedin size={20} />
-        </a>
-      </div>
+      <SocialLinks />
       
       <div className="container mx-auto px-6 h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
@@ -109,14 +78,16 @@ const Index = () => {
           {/* Right Content - Clickable Avatar */}
           <div className="hidden lg:block relative">
             <div className="w-96 h-96 mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-green-800/20 rounded-full animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-green-800/20 rounded-full" />
               <div 
                 className="absolute inset-4 cyber-border rounded-full bg-black/50 overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 hover-glow"
                 onClick={handleAvatarClick}
               >
                 <img 
-                  src="/lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png" 
-                  alt="Oskar's Avatar" 
+                  src="/lovable-uploads/g-ezgif.com-video-to-gif-converter.gif" 
+                  alt="Oskar waving hand animated GIF" 
+                  loading="eager"
+                  decoding="sync"
                   className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>
