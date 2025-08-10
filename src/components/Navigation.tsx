@@ -13,19 +13,19 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-      <div className="flex space-x-2 bg-black/80 backdrop-blur-md p-2 rounded-full cyber-border">
+      <div className="flex space-x-2 bg-black/90 backdrop-blur-md p-3 rounded-full cyber-border shadow-lg shadow-green-500/20">
         {navItems.map(({ path, label, icon: Icon }) => (
           <Link
             key={path}
             to={path}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${
+            className={`flex items-center space-x-2 px-5 py-3 rounded-full transition-all duration-300 ${
               location.pathname === path
-                ? 'bg-green-500/20 text-green-400 glow-text'
-                : 'text-gray-300 hover:text-green-400 hover:bg-green-500/10'
+                ? 'bg-green-500/30 text-green-400 glow-text shadow-md shadow-green-500/30'
+                : 'text-gray-300 hover:text-green-400 hover:bg-green-500/15'
             }`}
           >
-            <Icon size={18} />
-            <span className="text-sm font-medium">{label}</span>
+            <Icon size={20} />
+            <span className="text-sm font-medium tracking-wide">{label}</span>
           </Link>
         ))}
       </div>

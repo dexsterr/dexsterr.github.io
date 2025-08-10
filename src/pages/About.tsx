@@ -1,4 +1,3 @@
-
 import { Github, Linkedin, Award, BookOpen, Code, ExternalLink, Mail } from 'lucide-react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
@@ -18,15 +17,15 @@ const About = () => {
 
   const courses = [
     {
-      name: "Networking by Steve Tarzia",
-      provider: "Steve Tarzia",
-      status: "Planned",
-      link: "https://www.youtube.com/watch?si=UnM3GgNtD4NGrK1k&v=EN0efud3M5U&feature=youtu.be"
+      name: "Security Analyst Level 1 (SAL1)",
+      provider: "TryHackMe",
+      status: "Learning",
+      link: "https://tryhackme.com/certification/security-analyst-level-1"
     },
     {
       name: "CompTIA Security+",
       provider: "Comptia",
-      status: "Still Learning",
+      status: "Planned - October 2025",
     },
     {
       name: "Git Fundamentals Course",
@@ -61,12 +60,16 @@ const About = () => {
       {/* Social Links - Bottom Left */}
       <div className="fixed bottom-6 left-6 z-50 flex flex-col space-y-3">
         <a
-          href="https://ctf.hackthebox.com/user/profile/711503"
+          href="https://tryhackme.com/p/0dexster"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow"
+          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow flex items-center justify-center"
         >
-          <Code size={20} />
+          <img 
+            src="/lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png" 
+            alt="TryHackMe" 
+            className="w-5 h-5 filter hue-rotate-90 saturate-150 brightness-125"
+          />
         </a>
         <a
           href="https://github.com/dexsterr"
@@ -136,19 +139,19 @@ const About = () => {
                     )}
                     <p className="text-gray-400 text-sm">{course.provider}</p>
                   </div>
-<span
-  className={`px-3 py-1 rounded-full text-sm ml-4
-    ${course.status === 'Planned'
-      ? 'bg-green-600 text-white'
-      : (course.status === '2024' || course.status === '2025')
-      ? 'bg-blue-600 text-white'
-      : course.status === 'Still Learning'
-      ? 'bg-yellow-500/20 text-yellow-400'
-      : 'bg-blue-500/20 text-blue-400'
-    }`}
->
-  {course.status}
-</span>
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm ml-4
+                      ${course.status === 'Learning'
+                        ? 'bg-green-500/20 text-green-400'
+                        : course.status === 'Planned - October 2025'
+                        ? 'bg-yellow-500/20 text-yellow-400'
+                        : (course.status === '2024' || course.status === '2025')
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-blue-500/20 text-blue-400'
+                      }`}
+                  >
+                    {course.status}
+                  </span>
                 </div>
               ))}
             </div>

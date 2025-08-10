@@ -1,5 +1,6 @@
+
 import { Link } from 'react-router-dom';
-import { ArrowRight, Terminal, Github, Linkedin, Code } from 'lucide-react';
+import { ArrowRight, Terminal, Github, Linkedin } from 'lucide-react';
 import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
@@ -31,9 +32,13 @@ const Index = () => {
           href="https://tryhackme.com/p/0dexster"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow"
+          className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow flex items-center justify-center"
         >
-          <Code size={20} />
+          <img 
+            src="/lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png" 
+            alt="TryHackMe" 
+            className="w-5 h-5 filter hue-rotate-90 saturate-150 brightness-125"
+          />
         </a>
         <a
           href="https://github.com/dexsterr"
@@ -110,7 +115,7 @@ const Index = () => {
                 onClick={handleAvatarClick}
               >
                 <img 
-                  src="/uploads/g-ezgif.com-video-to-gif-converter.gif" 
+                  src="/lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png" 
                   alt="Oskar's Avatar" 
                   className="w-full h-full object-cover object-top rounded-full"
                 />
