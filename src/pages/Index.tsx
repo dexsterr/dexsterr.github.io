@@ -87,7 +87,7 @@ const Index = () => {
                 onClick={handleAvatarClick}
               >
                 <img 
-                  src="/lovable-uploads/g-ezgif.com-video-to-gif-converter.gif" 
+                  src="/uploads/g-ezgif.com-video-to-gif-converter.webp" 
                   alt="Oskar waving hand animated GIF" 
                   loading="eager"
                   decoding="sync"

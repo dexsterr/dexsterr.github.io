@@ -14,9 +14,9 @@ const SocialLinks = () => {
           className="w-5 h-5 bg-current"
           style={{
             WebkitMaskImage:
-              'url(/lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png)',
+              'url(/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp)',
             maskImage:
-              'url(/lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png)',
+              'url(/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp)',
             WebkitMaskRepeat: 'no-repeat',
             maskRepeat: 'no-repeat',
             WebkitMaskSize: 'contain',
