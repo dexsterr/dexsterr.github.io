@@ -2,6 +2,7 @@ import { Github, Linkedin, Award, BookOpen, Code, ExternalLink, Mail } from 'luc
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
+import { useMemo, useEffect } from 'react';
 
 const About = () => {
   const skills = [
@@ -52,6 +53,28 @@ const About = () => {
       status: "2024",
     },
   ];
+
+  // Set document title for browser tab
+  useEffect(() => {
+    document.title = 'Oskar Chudoba - Cybersecurity';
+  }, []);
+
+  // Dynamic experience date calculation
+  // Poprawka: start od 1 lipca 2025, więc drugi miesiąc pracy w sierpniu 2025
+  const experienceStart = useMemo(() => new Date(2025, 6, 1), []); // July 2025 (month is 0-based)
+  const now = new Date();
+  let months = (now.getFullYear() - experienceStart.getFullYear()) * 12 + (now.getMonth() - experienceStart.getMonth()) + 1;
+  if (months < 1) months = 1;
+  const years = Math.floor(months / 12);
+  const monthsRemainder = months % 12;
+  const duration = years > 0
+    ? `${years} yr${years > 1 ? 's' : ''}${monthsRemainder > 0 ? ` ${monthsRemainder} mo${monthsRemainder > 1 ? 's' : ''}` : ''}`
+    : `${monthsRemainder} mo${monthsRemainder !== 1 ? 's' : ''}`;
+  const experienceText = `Jul 2025 - Present · ${duration}`;
+
+  // Slightly expanded job description for Onsite Service Engineer
+  const onsiteEngineerDesc =
+    'Onsite Service Engineer: technical support, troubleshooting, ticketing, alerts, AD, Intune, ITP. Responsible for resolving user issues, maintaining IT infrastructure, and ensuring smooth daily operations.';
 
   return (
     <div className="min-h-screen cyber-bg relative">
@@ -144,6 +167,60 @@ const About = () => {
                   {skill}
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Professional Experience Section */}
+          <div className="cyber-border bg-black/50 backdrop-blur-sm rounded-lg p-8 mb-8">
+            <div className="flex items-center space-x-3 mb-8">
+              <Award className="text-green-400" size={24} />
+              <h2 className="text-2xl font-semibold text-white">Professional Experience</h2>
+            </div>
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-green-400"></div>
+              
+              {/* Timeline Items */}
+              <div className="space-y-8">
+                {/* Target Position - SOC Analyst */}
+                <div className="relative flex items-start">
+                  <div className="flex-shrink-0 w-4 h-4 bg-green-400/20 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
+                  <div className="ml-8 bg-black/30 rounded-lg p-6 flex-1 border border-green-400/20">
+                    <h3 className="text-green-400 font-semibold text-lg mb-1">SOC Analyst</h3>
+                    <p className="text-gray-400 text-sm mb-2">Target Position</p>
+                    <p className="text-gray-300 text-sm">
+                      Actively seeking opportunities in Security Operations Center environments. I'm working very hard to secure this position and currently targeting SOC Analyst roles. I'm taking specialized courses and studying cybersecurity daily to enhance my skills in threat detection, incident response, and security monitoring.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Current Position - Onsite Service Engineer */}
+                <div className="relative flex items-start">
+                  <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
+                  <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-blue-900/80 to-blue-700/80 border border-blue-500/30">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #232946 100%)' }}>
+                        <img
+                          src="/uploads/CAPGEMINI%20LOGO.png"
+                          alt="Capgemini Logo"
+                          className="object-contain w-8 h-8"
+                          style={{ background: 'none', display: 'block' }}
+                          loading="eager"
+                          fetchPriority="high"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-white font-semibold text-lg">Onsite Service Engineer</h3>
+                        <p className="text-blue-200 font-medium">Capgemini · Full-time</p>
+                      </div>
+                    </div>
+                    <p className="text-blue-100 text-sm mb-2">{experienceText}</p>
+                    <p className="text-blue-50 text-sm">
+                      {onsiteEngineerDesc}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

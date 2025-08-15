@@ -1,7 +1,6 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Terminal, Github, Linkedin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import TypingAnimation from '../components/TypingAnimation';
@@ -10,6 +9,10 @@ import SocialLinks from '../components/SocialLinks';
 
 const Index = () => {
   const [showMatrix, setShowMatrix] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Oskar Chudoba - Cybersecurity';
+  }, []);
 
   const handleAvatarClick = () => {
     setShowMatrix(true);
@@ -88,6 +91,7 @@ const Index = () => {
                   alt="Oskar waving hand animated GIF" 
                   loading="eager"
                   decoding="sync"
+                  fetchPriority="high"
                   className="w-full h-full object-cover object-top rounded-full"
                 />
               </div>

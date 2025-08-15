@@ -1,45 +1,39 @@
 
 import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin, Eye, Search, AlertTriangle } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
+import VideoEmbed from '../components/VideoEmbed';
 
 const Portfolio = () => {
   const projects = [
-    {
-      title: "Network Security Scanner",
-      description: "A concise network vulnerability scanner built with Python. Detects open ports, services, and potential security issues, identifies devices, and alerts on ARP spoofing.",
-      technologies: ["Python", "Nmap", "Scapy", "Tkinter"],
-      codeLink: "https://github.com/dexsterr/network-security-scanner",
-      icon: Network,
-    },
-    {
-      title: "Telegram Data Collector",
-      description: "A tool that uses OTP codes to log into Telegram accounts, extract files and conversations, and update data in real-time via Telegram API.",
-      technologies: ["Python", "Telegram API", "Data Collection"],
-      codeLink: "https://github.com/dexsterr/telegram-data-collector",
-      icon: Database,
-    },
-    {
-      title: "Encrypted Password Manager",
-      description: "A secure password manager with AES encryption, master password protection, and secure password generation, requiring user authentication.",
-      technologies: ["Python", "Cryptography", "SQLite"],
-      codeLink: "https://github.com/dexsterr/encrypted-password-manager",
-      icon: Shield,
-    },
     {
       title: "Web Application Penetration Testing Tool",
       description: "An automated tool for detecting common web vulnerabilities including SQL injection, XSS, CSRF, LFI, RFI, Directory Traversal, and missing HTTP security headers.",
       technologies: ["Python", "Requests", "BeautifulSoup"],
       codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
+      videoPath: "/uploads/videos/web-app-pen-testing.mp4",
+      thumbnail: "lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png",
     },
     {
-      title: "Login Anomaly Detector",
-      description: "Real-time log analyzer that detects unusual authentication activities, flagging suspicious events like unexpected geolocations and failed login attempts for SOC analysts.",
-      technologies: ["Python", "Log Analysis", "SIEM", "Geolocation"],
-      codeLink: "https://github.com/dexsterr/Login-Anomaly-Detector",
-      icon: Search,
+      title: "Network Security Scanner",
+      description: "A concise network vulnerability scanner built with Python. Detects open ports, services, and potential security issues, identifies devices, and alerts on ARP spoofing.",
+      technologies: ["Python", "Nmap", "Scapy", "Tkinter"],
+      codeLink: "https://github.com/dexsterr/network-security-scanner",
+      icon: Network,
+      videoPath: "/uploads/videos/network-security-scanner.mp4",
+      thumbnail: "lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png",
+    },
+    {
+      title: "Encrypted Password Manager", 
+      description: "A secure password manager with AES encryption, master password protection, and secure password generation, requiring user authentication.",
+      technologies: ["Python", "Cryptography", "SQLite"],
+      codeLink: "https://github.com/dexsterr/encrypted-password-manager",
+      icon: Shield,
+      videoPath: "/uploads/videos/password-manager.mp4",
+      thumbnail: "lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png",
     },
     {
       title: "Security Event Analysis Automation Tool",
@@ -47,8 +41,12 @@ const Portfolio = () => {
       technologies: ["Python", "IOC", "Automation", "Threat Intelligence"],
       codeLink: "https://github.com/dexsterr/Security-Event-Analysis-Automation-Tool",
       icon: AlertTriangle,
+      videoPath: "/uploads/videos/security-event-analysis.mp4",
+      thumbnail: "lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png",
     },
   ];
+
+  console.log('Portfolio component rendering, projects:', projects.length);
 
   return (
     <div className="min-h-screen cyber-bg relative">
@@ -69,49 +67,77 @@ const Portfolio = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="cyber-border bg-black/50 backdrop-blur-sm rounded-lg p-6 hover-glow transition-all duration-300 group"
-            >
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="p-3 bg-green-500/20 rounded-lg">
-                  <project.icon className="text-green-400" size={24} />
+          {projects.map((project, index) => {
+            return (
+              <div
+                key={index}
+                className="cyber-border bg-black/50 backdrop-blur-sm rounded-lg p-6 hover-glow transition-all duration-300 group"
+              >
+                {/* Video Container with Gradient Background */}
+                <div className="mb-4 h-56 rounded-lg overflow-hidden bg-gradient-to-br from-green-900/30 via-emerald-800/20 to-cyan-900/30 relative">
+                  <VideoEmbed 
+                    videoPath={project.videoPath}
+                    title={`${project.title} Demo`}
+                    className="w-full h-full"
+                  />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-green-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {project.description}
-                  </p>
+                
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="p-3 bg-green-500/20 rounded-lg">
+                    <project.icon className="text-green-400" size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-green-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <button
-                    key={techIndex}
-                    className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full cyber-border hover:bg-green-500/30 hover:text-green-300 transition-colors"
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <button
+                      key={techIndex}
+                      className="px-3 py-1 bg-green-500/20 text-green-400 text-sm rounded-full cyber-border hover:bg-green-500/30 hover:text-green-300 transition-colors"
+                    >
+                      {tech}
+                    </button>
+                  ))}
+                </div>
+                
+                <div className="flex">
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors"
                   >
-                    {tech}
-                  </button>
-                ))}
+                    <Github size={18} />
+                    <span>Code</span>
+                  </a>
+                </div>
               </div>
-              
-              <div className="flex">
-                <a
-                  href={project.codeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-gray-300 hover:text-green-400 transition-colors"
-                >
-                  <Github size={18} />
-                  <span>Code</span>
-                </a>
-              </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+        
+        {/* More Projects Section */}
+        <div className="text-center mt-16 py-8">
+          <p className="text-gray-300 text-lg mb-4">
+            Jeżeli chcesz zobaczyć więcej moich projektów, link znajduje się tutaj:
+          </p>
+          <a
+            href="https://github.com/dexsterr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 text-green-400 hover:text-green-300 transition-colors text-lg font-semibold hover-glow"
+          >
+            <Github size={24} />
+            <span>GitHub Profile</span>
+            <ExternalLink size={20} />
+          </a>
         </div>
       </div>
     </div>

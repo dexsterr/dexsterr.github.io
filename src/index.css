@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .border-border {
+    @apply border-2;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -85,11 +91,14 @@
 
 @layer base {
   * {
-    @apply border-border;
+    /* USUWAM globalne @apply border-border, bo powoduje białe linie na wszystkim! */
+    /* @apply border-border; */
+    box-sizing: border-box;
   }
 
   html, body {
-    @apply bg-black text-white;
+    background: #000;
+    color: #fff;
     overflow-x: hidden;
     height: 100%;
   }
@@ -164,6 +173,7 @@
       0 0 20px rgba(34, 197, 94, 0.1),
       inset 0 0 20px rgba(34, 197, 94, 0.05);
     position: relative;
+    background: none;
   }
 
   .cyber-border::before {
@@ -183,6 +193,7 @@
     border-radius: inherit;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
   }
 
   .hover-glow {
@@ -415,5 +426,44 @@
   }
   100% {
     background-position: 20px 20px;
+  }
+}
+
+/* Hide Spline "Built with Spline" badge - Enhanced */
+iframe[src*="spline"] {
+  border: none !important;
+}
+
+/* Target all possible Spline watermark selectors */
+.spline-watermark,
+spline-viewer .spline-watermark,
+iframe .spline-watermark,
+[class*="watermark"],
+[class*="spline-watermark"],
+a[href*="spline.design"],
+iframe a[href*="spline.design"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Performance optimizations */
+iframe[src*="spline"] {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+/* Reduce animation complexity for better performance */
+@media (prefers-reduced-motion: reduce) {
+  .cyber-bg::before,
+  .cyber-bg::after,
+  .matrix-char,
+  .animate-fall {
+    animation: none !important;
   }
 }
