@@ -6,7 +6,7 @@ import CyberBackground from '../components/CyberBackground';
 import TypingAnimation from '../components/TypingAnimation';
 import MatrixAnimation from '../components/MatrixAnimation';
 import SocialLinks from '../components/SocialLinks';
-import wavingGif from '../../uploads/g-ezgif.com-video-to-gif-converter.webp';
+import wavingGif from '../../uploads/avatar.gif';
 
 const Index = () => {
   const [showMatrix, setShowMatrix] = useState(false);
