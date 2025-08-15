@@ -1,0 +1,16 @@
+{
+  "name": "Oskar Chudoba - Cybersecurity Portfolio",
+  "short_name": "Cybersecurity",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "description": "Portfolio of Oskar Chudoba, cybersecurity enthusiast.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
