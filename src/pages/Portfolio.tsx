@@ -5,6 +5,13 @@ import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
 import VideoEmbed from '../components/VideoEmbed';
 
+import webAppPenTesting from '../../uploads/videos/web-app-pen-testing-opt.mp4';
+import networkSecurityScanner from '../../uploads/videos/network-security-scanner-opt.mp4';
+import passwordManager from '../../uploads/videos/password-manager-opt.mp4';
+import securityEventAnalysis from '../../uploads/videos/security-event-analysis-opt.mp4';
+import thumb1 from '../../uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png';
+import thumb2 from '../../uploads/3d1c362d-4961-4cec-824f-e7326848ec06.webp';
+
 const Portfolio = () => {
   const projects = [
     {
@@ -13,8 +20,8 @@ const Portfolio = () => {
       technologies: ["Python", "Requests", "BeautifulSoup"],
       codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
-      videoPath: "/uploads/videos/web-app-pen-testing-opt.mp4",
-      thumbnail: "/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp",
+      videoPath: webAppPenTesting,
+      thumbnail: thumb1,
     },
     {
       title: "Network Security Scanner",
@@ -22,8 +29,8 @@ const Portfolio = () => {
       technologies: ["Python", "Nmap", "Scapy", "Tkinter"],
       codeLink: "https://github.com/dexsterr/network-security-scanner",
       icon: Network,
-      videoPath: "/uploads/videos/network-security-scanner-opt.mp4",
-      thumbnail: "/uploads/3d1c362d-4961-4cec-824f-e7326848ec06.webp",
+      videoPath: networkSecurityScanner,
+      thumbnail: thumb2,
     },
     {
       title: "Encrypted Password Manager", 
@@ -31,8 +38,8 @@ const Portfolio = () => {
       technologies: ["Python", "Cryptography", "SQLite"],
       codeLink: "https://github.com/dexsterr/encrypted-password-manager",
       icon: Shield,
-      videoPath: "/uploads/videos/password-manager-opt.mp4",
-      thumbnail: "/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp",
+      videoPath: passwordManager,
+      thumbnail: thumb1,
     },
     {
       title: "Security Event Analysis Automation Tool",
@@ -40,8 +47,8 @@ const Portfolio = () => {
       technologies: ["Python", "IOC", "Automation", "Threat Intelligence"],
       codeLink: "https://github.com/dexsterr/Security-Event-Analysis-Automation-Tool",
       icon: AlertTriangle,
-      videoPath: "/uploads/videos/security-event-analysis-opt.mp4",
-      thumbnail: "/uploads/3d1c362d-4961-4cec-824f-e7326848ec06.webp",
+      videoPath: securityEventAnalysis,
+      thumbnail: thumb2,
     },
   ];
 

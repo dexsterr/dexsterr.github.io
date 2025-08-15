@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
 import { useMemo, useEffect } from 'react';
+import capgeminiLogo from '../../uploads/CAPGEMINILOGO.png';
 
 const About = () => {
   const skills = [
@@ -201,12 +202,9 @@ const About = () => {
                     <div className="flex items-center space-x-3 mb-3">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #232946 100%)' }}>
                         <img
-                          src="/uploads/CAPGEMINILOGO.png"
-                          alt="Capgemini Logo"
-                          className="object-cover w-8 h-8 bg-white rounded"
-                          style={{ display: 'block' }}
-                          loading="eager"
-                          decoding="sync"
+                          src={capgeminiLogo}
+                          alt="Capgemini logo"
+                          className="w-8 h-8 object-contain mx-auto my-auto"
                         />
                       </div>
                       <div>

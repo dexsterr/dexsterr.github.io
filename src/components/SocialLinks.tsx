@@ -1,4 +1,5 @@
 import { Github, Linkedin } from 'lucide-react';
+import tryhackmeMask from '../../uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png';
 
 const SocialLinks = () => {
   return (
@@ -10,20 +11,11 @@ const SocialLinks = () => {
         className="p-3 bg-black/80 backdrop-blur-md rounded-lg cyber-border text-green-400 hover:text-green-300 transition-colors hover-glow flex items-center justify-center"
         aria-label="TryHackMe profile"
       >
-        <span
-          className="w-5 h-5 bg-current"
-          style={{
-            WebkitMaskImage:
-              'url(/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp)',
-            maskImage:
-              'url(/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp)',
-            WebkitMaskRepeat: 'no-repeat',
-            maskRepeat: 'no-repeat',
-            WebkitMaskSize: 'contain',
-            maskSize: 'contain',
-            WebkitMaskPosition: 'center',
-            maskPosition: 'center',
-          }}
+        <img
+          src={tryhackmeMask}
+          alt="TryHackMe"
+          className="w-5 h-5 filter-green"
+          style={{ filter: 'brightness(0) saturate(100%) invert(73%) sepia(99%) saturate(749%) hue-rotate(74deg) brightness(102%) contrast(101%)' }}
           aria-hidden="true"
         />
       </a>

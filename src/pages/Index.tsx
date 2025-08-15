@@ -6,6 +6,7 @@ import CyberBackground from '../components/CyberBackground';
 import TypingAnimation from '../components/TypingAnimation';
 import MatrixAnimation from '../components/MatrixAnimation';
 import SocialLinks from '../components/SocialLinks';
+import wavingGif from '../../uploads/g-ezgif.com-video-to-gif-converter.webp';
 
 const Index = () => {
   const [showMatrix, setShowMatrix] = useState(false);
@@ -87,7 +88,7 @@ const Index = () => {
                 onClick={handleAvatarClick}
               >
                 <img 
-                  src="/uploads/g-ezgif.com-video-to-gif-converter.webp" 
+                  src={wavingGif} 
                   alt="Oskar waving hand animated GIF" 
                   loading="eager"
                   decoding="sync"
