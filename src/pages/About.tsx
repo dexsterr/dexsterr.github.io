@@ -201,12 +201,12 @@ const About = () => {
                     <div className="flex items-center space-x-3 mb-3">
                       <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #232946 100%)' }}>
                         <img
-                          src="/uploads/CAPGEMINI%20LOGO.png"
+                          src="/uploads/CAPGEMINILOGO.png"
                           alt="Capgemini Logo"
-                          className="object-contain w-8 h-8"
-                          style={{ background: 'none', display: 'block' }}
+                          className="object-cover w-8 h-8 bg-white rounded"
+                          style={{ display: 'block' }}
                           loading="eager"
-                          fetchPriority="high"
+                          decoding="sync"
                         />
                       </div>
                       <div>

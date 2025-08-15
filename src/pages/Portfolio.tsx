@@ -1,4 +1,3 @@
-
 import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin, Eye, Search, AlertTriangle } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import Navigation from '../components/Navigation';
@@ -14,8 +13,8 @@ const Portfolio = () => {
       technologies: ["Python", "Requests", "BeautifulSoup"],
       codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
-      videoPath: "/uploads/videos/web-app-pen-testing.mp4",
-      thumbnail: "lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png",
+      videoPath: "/uploads/videos/web-app-pen-testing-opt.mp4",
+      thumbnail: "/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp",
     },
     {
       title: "Network Security Scanner",
@@ -23,8 +22,8 @@ const Portfolio = () => {
       technologies: ["Python", "Nmap", "Scapy", "Tkinter"],
       codeLink: "https://github.com/dexsterr/network-security-scanner",
       icon: Network,
-      videoPath: "/uploads/videos/network-security-scanner.mp4",
-      thumbnail: "lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png",
+      videoPath: "/uploads/videos/network-security-scanner-opt.mp4",
+      thumbnail: "/uploads/3d1c362d-4961-4cec-824f-e7326848ec06.webp",
     },
     {
       title: "Encrypted Password Manager", 
@@ -32,8 +31,8 @@ const Portfolio = () => {
       technologies: ["Python", "Cryptography", "SQLite"],
       codeLink: "https://github.com/dexsterr/encrypted-password-manager",
       icon: Shield,
-      videoPath: "/uploads/videos/password-manager.mp4",
-      thumbnail: "lovable-uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png",
+      videoPath: "/uploads/videos/password-manager-opt.mp4",
+      thumbnail: "/uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.webp",
     },
     {
       title: "Security Event Analysis Automation Tool",
@@ -41,8 +40,8 @@ const Portfolio = () => {
       technologies: ["Python", "IOC", "Automation", "Threat Intelligence"],
       codeLink: "https://github.com/dexsterr/Security-Event-Analysis-Automation-Tool",
       icon: AlertTriangle,
-      videoPath: "/uploads/videos/security-event-analysis.mp4",
-      thumbnail: "lovable-uploads/3d1c362d-4961-4cec-824f-e7326848ec06.png",
+      videoPath: "/uploads/videos/security-event-analysis-opt.mp4",
+      thumbnail: "/uploads/3d1c362d-4961-4cec-824f-e7326848ec06.webp",
     },
   ];
 
@@ -80,6 +79,15 @@ const Portfolio = () => {
                     title={`${project.title} Demo`}
                     className="w-full h-full"
                   />
+                  {project.thumbnail && (
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title + " thumbnail"}
+                      className="absolute top-0 left-0 w-full h-full object-cover opacity-0" // fallback, hidden
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  )}
                 </div>
                 
                 <div className="flex items-start space-x-4 mb-4">
