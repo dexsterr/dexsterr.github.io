@@ -1,5 +1,6 @@
+
 import { Link } from 'react-router-dom';
-import { ArrowRight, Terminal, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, Terminal } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
@@ -7,9 +8,10 @@ import TypingAnimation from '../components/TypingAnimation';
 import MatrixAnimation from '../components/MatrixAnimation';
 import SocialLinks from '../components/SocialLinks';
 
-const wavingGif = '/avatar.gif';
 const Index = () => {
   const [showMatrix, setShowMatrix] = useState(false);
+  const [avatarKey, setAvatarKey] = useState(Date.now());
+  const [gifError, setGifError] = useState(false);
 
   useEffect(() => {
     document.title = 'Oskar Chudoba - Cybersecurity';
@@ -17,11 +19,38 @@ const Index = () => {
 
   const handleAvatarClick = () => {
     setShowMatrix(true);
+    setAvatarKey(Date.now());
+    setGifError(false);
   };
 
   const handleMatrixComplete = () => {
     setShowMatrix(false);
   };
+
+  const handleGifLoad = () => {
+    setGifError(false);
+  };
+
+  const handleGifError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.target as HTMLImageElement;
+    
+    if (!gifError) {
+      setGifError(true);
+      const fallbackPaths = [
+        `/public/avatar.gif`,
+        `/uploads/avatar.gif`,
+        `/lovable-uploads/g-ezgif.com-video-to-gif-converter.gif`
+      ];
+      
+      const currentIndex = fallbackPaths.findIndex(path => img.src.includes(path));
+      const nextIndex = currentIndex + 1;
+      
+      if (nextIndex < fallbackPaths.length) {
+        img.src = fallbackPaths[nextIndex];
+      }
+    }
+  };
+
 
   return (
     <div className="min-h-screen cyber-bg relative">
@@ -86,14 +115,26 @@ const Index = () => {
               <div 
                 className="absolute inset-4 cyber-border rounded-full bg-black/50 overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300 hover-glow"
                 onClick={handleAvatarClick}
+                style={{ 
+                  border: showMatrix ? '2px solid #22c55e' : undefined,
+                  boxShadow: showMatrix ? '0 0 20px #22c55e' : undefined
+                }}
               >
                 <img 
-                  src={wavingGif} 
-                  alt="Oskar waving hand animated GIF" 
+                  key={`avatar-${avatarKey}`}
+                  src={`/avatar.gif`}
+                  alt="Oskar Chudoba - animowany GIF z machaniem ręką" 
                   loading="eager"
-                  decoding="sync"
-                  fetchPriority="high"
-                  className="w-full h-full object-cover object-top rounded-full"
+                  decoding="async"
+                  className="w-full h-full object-cover object-center rounded-full"
+                  style={{
+                    imageRendering: 'auto',
+                    backfaceVisibility: 'hidden',
+                    transform: 'translateZ(0)',
+                    willChange: 'transform'
+                  }}
+                  onLoad={handleGifLoad}
+                  onError={handleGifError}
                 />
               </div>
               <div className="absolute inset-8 cyber-border rounded-full bg-transparent pointer-events-none" />
@@ -101,6 +142,14 @@ const Index = () => {
           </div>
         </div>
       </div>
+
+      {/* Matrix Animation */}
+      {showMatrix && (
+        <div className="fixed top-0 left-0 right-0 bottom-0 z-[9999] bg-black/90">
+          <MatrixAnimation isActive={showMatrix} onComplete={handleMatrixComplete} />
+        </div>
+      )}
+      
     </div>
   );
 };
