@@ -22,13 +22,13 @@ const About = () => {
     {
       name: "Security Analyst Level 1 (SAL1)",
       provider: "TryHackMe",
-      status: "Learning",
+      status: "Planned - December 2025",
       link: "https://tryhackme.com/certification/security-analyst-level-1"
     },
     {
       name: "CompTIA Security+",
       provider: "Comptia",
-      status: "Planned - October 2025",
+      status: "2025",
     },
     {
       name: "Git Fundamentals Course",
