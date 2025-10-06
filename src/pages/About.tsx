@@ -29,6 +29,7 @@ const About = () => {
       name: "CompTIA Security+",
       provider: "Comptia",
       status: "2025",
+      link: "https://www.certmetrics.com/comptia/public/verification.aspx?code=78MBLLMZ9VPL0WNJ"
     },
     {
       name: "Git Fundamentals Course",
