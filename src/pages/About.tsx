@@ -29,7 +29,7 @@ const About = () => {
       name: "CompTIA Security+",
       provider: "Comptia",
       status: "2025",
-      link: "https://www.certmetrics.com/comptia/public/verification.aspx?code=78MBLLMZ9VPL0WNJ"
+      link: "https://www.credly.com/badges/32023631-a420-4515-81d1-75b17e20b890/linked_in_profile"
     },
     {
       name: "Git Fundamentals Course",
@@ -138,14 +138,14 @@ const About = () => {
                   </div>
                   <span
                     className={`px-3 py-1 rounded-full text-sm ml-4
-                      ${course.status === 'Learning'
-                        ? 'bg-green-500/20 text-green-400'
-                        : course.status === 'Planned - October 2025'
-                        ? 'bg-yellow-500/20 text-yellow-400'
-                        : (course.status === '2024' || course.status === '2025')
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-blue-500/20 text-blue-400'
-                      }`}
+${course.status === 'Learning'
+  ? 'bg-green-500/20 text-green-400'
+  : course.status?.startsWith('Planned - December 2025')
+  ? 'bg-yellow-500/20 text-yellow-400'
+  : (course.status === '2024' || course.status === '2025')
+  ? 'bg-blue-600 text-white'
+  : 'bg-blue-500/20 text-blue-400'
+}`}
                   >
                     {course.status}
                   </span>
