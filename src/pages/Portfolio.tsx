@@ -9,8 +9,8 @@ import webAppPenTesting from '../../uploads/videos/web-app-pen-testing-opt.mp4';
 import networkSecurityScanner from '../../uploads/videos/network-security-scanner-opt.mp4';
 import passwordManager from '../../uploads/videos/password-manager-opt.mp4';
 import securityEventAnalysis from '../../uploads/videos/security-event-analysis-opt.mp4';
-import thumb1 from '../../uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png';
-import thumb2 from '../../uploads/3d1c362d-4961-4cec-824f-e7326848ec06.webp';
+import thumb1 from '@/assets/tryhackme-logo.png';
+import thumb2 from '@/assets/thumb-network.webp';
 
 const Portfolio = () => {
   const projects = [
@@ -85,16 +85,8 @@ const Portfolio = () => {
                     videoPath={project.videoPath}
                     title={`${project.title} Demo`}
                     className="w-full h-full"
+                    poster={project.thumbnail}
                   />
-                  {project.thumbnail && (
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title + " thumbnail"}
-                      className="absolute top-0 left-0 w-full h-full object-cover opacity-0" // fallback, hidden
-                      loading="eager"
-                      fetchPriority="high"
-                    />
-                  )}
                 </div>
                 
                 <div className="flex items-start space-x-4 mb-4">

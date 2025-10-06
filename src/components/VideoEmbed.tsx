@@ -4,9 +4,10 @@ interface VideoEmbedProps {
   videoPath: string;
   title?: string;
   className?: string;
+  poster?: string;
 }
 
-const VideoEmbed = ({ videoPath, title, className = "" }: VideoEmbedProps) => {
+const VideoEmbed = ({ videoPath, title, className = "", poster }: VideoEmbedProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const src = useMemo(() => {

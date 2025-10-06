@@ -3,7 +3,7 @@ import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
 import { useMemo, useEffect } from 'react';
-import capgeminiLogo from '../../uploads/CAPGEMINILOGO.png';
+import capgeminiLogo from '@/assets/capgemini.png';
 
 const About = () => {
   const skills = [
@@ -141,7 +141,7 @@ const About = () => {
 ${course.status === 'Learning'
   ? 'bg-green-500/20 text-green-400'
   : course.status?.startsWith('Planned - December 2025')
-  ? 'bg-yellow-500/20 text-yellow-400'
+  ? 'bg-red-900/40 text-red-600 border border-red-600/50'
   : (course.status === '2024' || course.status === '2025')
   ? 'bg-blue-600 text-white'
   : 'bg-blue-500/20 text-blue-400'

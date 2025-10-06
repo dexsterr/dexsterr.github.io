@@ -1,5 +1,5 @@
 import { Github, Linkedin } from 'lucide-react';
-import tryhackmeMask from '../../uploads/296342a4-6eb7-46cb-9696-1eed69fc4aee.png';
+import tryhackmeMask from '@/assets/tryhackme-logo.png';
 
 const SocialLinks = () => {
   return (

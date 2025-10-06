@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
+  base: './',
   server: {
     host: true,
     port: 8080,
