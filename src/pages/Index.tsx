@@ -80,7 +80,7 @@ const Index = () => {
               </h2>
               
               <p className="text-gray-400 text-lg">
-                20 years old • Passionate about digital security
+                21 years old • Passionate about digital security
               </p>
             </div>
             

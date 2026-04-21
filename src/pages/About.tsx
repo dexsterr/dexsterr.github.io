@@ -206,11 +206,10 @@ ${course.status === 'Learning'
                         </div>
                         <div>
                           <h3 className="text-white font-semibold text-lg">Cybersecurity Internship</h3>
-                          <p className="text-blue-200 font-medium">PGE Energia Ciepla S.A. · Jan 2026 - Feb 2026 · 2 mos</p>
+                          <p className="text-gray-400 font-medium">PGE Energia Ciepla S.A. · Jan - Feb 2026</p>
                         </div>
                       </div>
-                      <p className="text-blue-100 text-sm mb-2">(During my time at Capgemini)</p>
-                      <p className="text-blue-50 text-sm">
+                      <p className="text-gray-300 text-sm">
                         SIEM monitoring and incident detection, cybersecurity tasks and alert triage, ElasticSearch log analysis, and ticket handling via Freescout. Gained hands-on exposure to security operations and incident investigation.
                       </p>
                     </div>
