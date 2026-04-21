@@ -17,6 +17,9 @@ const About = () => {
     "Communication Team Collab",
     "Cybersecurity Basics",
     "Linux (CLI/Hardening)",
+    "Ticketing via servicecentral",
+    "ElasticSearch Log Analysis",
+    "Alert Triage & Ticketing",
   ];
 
   const courses = [
@@ -107,7 +110,7 @@ const About = () => {
             </div>
             <div className="text-gray-300 leading-relaxed">
               <p>
-                 I'm a 21-year-old Cybersecurity student, eager to grow and skilled in teamwork. I'm passionate about learning and actively training in Cybersecurity. In my free time, I maintain an active lifestyle at the gym.
+                A 21-year-old Cybersecurity student and strong team player, actively expanding my technical skill set. Beyond academic training, I apply my knowledge practically by writing server scripts, and setting up and securing websites. Eager to bring my hands-on experience and problem-solving mindset to a professional environment.
               </p>
             </div>
           </div>
