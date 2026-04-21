@@ -4,6 +4,7 @@ import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
 import { useMemo, useEffect } from 'react';
 import capgeminiLogo from '@/assets/capgemini.png';
+import pgeLogo from '@/assets/pge.svg';
 
 const About = () => {
   const skills = [
@@ -22,7 +23,7 @@ const About = () => {
     {
       name: "Security Analyst Level 1 (SAL1)",
       provider: "TryHackMe",
-      status: "Planned - December 2025",
+      status: "Planned",
       link: "https://tryhackme.com/certification/security-analyst-level-1"
     },
     {
@@ -106,7 +107,7 @@ const About = () => {
             </div>
             <div className="text-gray-300 leading-relaxed">
               <p>
-                I'm a 20-year-old Cybersecurity student, eager to grow and skilled in teamwork. I'm passionate about learning and actively training in Cybersecurity. In my free time, I maintain an active lifestyle at the gym.
+                 I'm a 21-year-old Cybersecurity student, eager to grow and skilled in teamwork. I'm passionate about learning and actively training in Cybersecurity. In my free time, I maintain an active lifestyle at the gym.
               </p>
             </div>
           </div>
@@ -125,7 +126,6 @@ const About = () => {
                       <a
                         href={course.link}
                         target="_blank"
-                        rel="noopener noreferrer"
                         className="text-white font-medium hover:text-green-400 transition-colors flex items-center space-x-2"
                       >
                         <span>{course.name}</span>
@@ -140,7 +140,7 @@ const About = () => {
                     className={`px-3 py-1 rounded-full text-sm ml-4
 ${course.status === 'Learning'
   ? 'bg-green-500/20 text-green-400'
-  : course.status?.startsWith('Planned - December 2025')
+    : course.status?.startsWith('Planned')
   ? 'bg-red-900/40 text-red-600 border border-red-600/50'
   : (course.status === '2024' || course.status === '2025')
   ? 'bg-blue-600 text-white'
@@ -219,6 +219,26 @@ ${course.status === 'Learning'
                     </p>
                   </div>
                 </div>
+
+                  {/* Professional Internship - PGE Energia Ciepla S.A. */}
+                  <div className="relative flex items-start">
+                    <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
+                    <div className="ml-8 rounded-lg p-6 flex-1 bg-black/30 border border-green-400/10">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #1b2b3a 100%)' }}>
+                          <img src={pgeLogo} alt="PGE logo" className="w-8 h-8 object-contain mx-auto my-auto" />
+                        </div>
+                        <div>
+                          <h3 className="text-white font-semibold text-lg">Professional Internship</h3>
+                          <p className="text-blue-200 font-medium">PGE Energia Ciepla S.A. · 2 months</p>
+                        </div>
+                      </div>
+                      <p className="text-blue-100 text-sm mb-2">Internship (carried out during my time at Capgemini)</p>
+                      <p className="text-blue-50 text-sm">
+                        During a two-month professional internship at PGE Energia Ciepla S.A., I worked with SIEM tools for monitoring and incident detection, performed basic cybersecurity tasks and alert triage, and used ElasticSearch for log analysis. I also handled tickets via Freescout and supported daily security workflows. This experience provided hands-on exposure to log analysis, incident investigation, and practical security operations.
+                      </p>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
