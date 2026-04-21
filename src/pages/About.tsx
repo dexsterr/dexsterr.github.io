@@ -196,43 +196,20 @@ ${course.status === 'Learning'
                   </div>
                 </div>
 
-                {/* Current Position - Onsite Service Engineer */}
-                <div className="relative flex items-start">
-                  <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
-                  <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-blue-900/80 to-blue-700/80 border border-blue-500/30">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #232946 100%)' }}>
-                        <img
-                          src={capgeminiLogo}
-                          alt="Capgemini logo"
-                          className="w-8 h-8 object-contain mx-auto my-auto"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-white font-semibold text-lg">Onsite Service Engineer</h3>
-                        <p className="text-blue-200 font-medium">Capgemini · Full-time</p>
-                      </div>
-                    </div>
-                    <p className="text-blue-100 text-sm mb-2">{experienceText}</p>
-                    <p className="text-blue-50 text-sm">
-                      {onsiteEngineerDesc}
-                    </p>
-                  </div>
-                </div>
-
                   {/* Cybersecurity Internship - PGE Energia Ciepla S.A. */}
                   <div className="relative flex items-start">
                     <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
-                    <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-blue-900/80 to-blue-700/80 border border-blue-500/30">
+                    <div className="ml-8 rounded-lg p-6 flex-1 bg-black/30 border border-green-400/10">
                       <div className="flex items-center space-x-3 mb-3">
                         <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #1b2b3a 100%)' }}>
                           <img src={pgeLogo} alt="PGE logo" className="w-8 h-8 object-contain mx-auto my-auto" />
                         </div>
                         <div>
                           <h3 className="text-white font-semibold text-lg">Cybersecurity Internship</h3>
-                          <p className="text-blue-200 font-medium">PGE Energia Ciepla S.A. · Jan - Feb 2026</p>
+                          <p className="text-blue-200 font-medium">PGE Energia Ciepla S.A. · Jan 2026 - Feb 2026 · 2 mos</p>
                         </div>
                       </div>
+                      <p className="text-blue-100 text-sm mb-2">(During my time at Capgemini)</p>
                       <p className="text-blue-50 text-sm">
                         SIEM monitoring and incident detection, cybersecurity tasks and alert triage, ElasticSearch log analysis, and ticket handling via Freescout. Gained hands-on exposure to security operations and incident investigation.
                       </p>
@@ -242,7 +219,7 @@ ${course.status === 'Learning'
                   {/* Onsite Service Engineer - Capgemini */}
                   <div className="relative flex items-start">
                     <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
-                    <div className="ml-8 rounded-lg p-6 flex-1 bg-black/30 border border-green-400/10">
+                    <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-blue-900/80 to-blue-700/80 border border-blue-500/30">
                       <div className="flex items-center space-x-3 mb-3">
                         <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #232946 100%)' }}>
                           <img
