@@ -3,25 +3,38 @@ import { useState, useRef, useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import CyberBackground from '../components/CyberBackground';
 import SocialLinks from '../components/SocialLinks';
-import VideoEmbed from '../components/VideoEmbed';
-
-import webAppPenTesting from '../../uploads/videos/web-app-pen-testing-opt.mp4';
-import networkSecurityScanner from '../../uploads/videos/network-security-scanner-opt.mp4';
-import passwordManager from '../../uploads/videos/password-manager-opt.mp4';
-import securityEventAnalysis from '../../uploads/videos/security-event-analysis-opt.mp4';
-import thumb1 from '@/assets/tryhackme-logo.png';
-import thumb2 from '@/assets/thumb-network.webp';
+import C2Visualization from '../components/C2Visualization';
+import ArbitrageVisualization from '../components/ArbitrageVisualization';
+import WebAppPenTestingViz from '../components/WebAppPenTestingViz';
+import NetworkSecurityScannerViz from '../components/NetworkSecurityScannerViz';
+import PasswordManagerViz from '../components/PasswordManagerViz';
+import SecurityEventAnalysisViz from '../components/SecurityEventAnalysisViz';
 
 const Portfolio = () => {
   const projects = [
+    {
+      title: "Distributed Agent Management System (C2)",
+      description: "A comprehensive Command & Control dashboard built with Node.js. Automates the deployment of agents, manages dynamic SOCKS5 proxy routing to evade detection, and provides real-time telemetry and secure session management.",
+      technologies: ["Node.js", "Socket.IO", "Discord API", "OPSEC"],
+      codeLink: "https://github.com/dexsterr/Node.js-Botnet-C2-Dashboard-PoC-",
+      icon: Network,
+      visualization: C2Visualization,
+    },
+    {
+      title: "Automated Market Arbitrage System",
+      description: "An event-driven, high-frequency automation framework. Performs rapid market data analysis, parses complex metadata via Regex, and executes trades autonomously with robust error handling and network latency optimization.",
+      technologies: ["Node.js", "Data Parsing", "Automation", "Network Optimization"],
+      codeLink: "https://github.com/dexsterr/automated-market-arbitrage-bot",
+      icon: Database,
+      visualization: ArbitrageVisualization,
+    },
     {
       title: "Web Application Penetration Testing Tool",
       description: "An automated tool for detecting common web vulnerabilities including SQL injection, XSS, CSRF, LFI, RFI, Directory Traversal, and missing HTTP security headers.",
       technologies: ["Python", "Requests", "BeautifulSoup"],
       codeLink: "https://github.com/dexsterr/Web-Application-Penetration-Testing-Tool",
       icon: Code,
-      videoPath: webAppPenTesting,
-      thumbnail: thumb1,
+      visualization: WebAppPenTestingViz,
     },
     {
       title: "Network Security Scanner",
@@ -29,8 +42,7 @@ const Portfolio = () => {
       technologies: ["Python", "Nmap", "Scapy", "Tkinter"],
       codeLink: "https://github.com/dexsterr/network-security-scanner",
       icon: Network,
-      videoPath: networkSecurityScanner,
-      thumbnail: thumb2,
+      visualization: NetworkSecurityScannerViz,
     },
     {
       title: "Encrypted Password Manager", 
@@ -38,8 +50,7 @@ const Portfolio = () => {
       technologies: ["Python", "Cryptography", "SQLite"],
       codeLink: "https://github.com/dexsterr/encrypted-password-manager",
       icon: Shield,
-      videoPath: passwordManager,
-      thumbnail: thumb1,
+      visualization: PasswordManagerViz,
     },
     {
       title: "Security Event Analysis Automation Tool",
@@ -47,8 +58,7 @@ const Portfolio = () => {
       technologies: ["Python", "IOC", "Automation", "Threat Intelligence"],
       codeLink: "https://github.com/dexsterr/Security-Event-Analysis-Automation-Tool",
       icon: AlertTriangle,
-      videoPath: securityEventAnalysis,
-      thumbnail: thumb2,
+      visualization: SecurityEventAnalysisViz,
     },
   ];
 
@@ -79,14 +89,18 @@ const Portfolio = () => {
                 key={index}
                 className="cyber-border bg-black/50 backdrop-blur-sm rounded-lg p-6 hover-glow transition-all duration-300 group"
               >
-                {/* Video Container with Gradient Background */}
+                {/* Video Container with Gradient Background or Visualization */}
                 <div className="mb-4 h-56 rounded-lg overflow-hidden bg-gradient-to-br from-green-900/30 via-emerald-800/20 to-cyan-900/30 relative">
-                  <VideoEmbed 
-                    videoPath={project.videoPath}
-                    title={`${project.title} Demo`}
-                    className="w-full h-full"
-                    poster={project.thumbnail}
-                  />
+                  {project.visualization ? (
+                    <project.visualization />
+                  ) : (
+                    <VideoEmbed 
+                      videoPath={project.videoPath}
+                      title={`${project.title} Demo`}
+                      className="w-full h-full"
+                      poster={project.thumbnail}
+                    />
+                  )}
                 </div>
                 
                 <div className="flex items-start space-x-4 mb-4">
