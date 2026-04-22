@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
-  base: './',
+  base: '/',
   server: {
     host: true,
     port: 8080,
@@ -23,8 +23,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: '.',
     assetsDir: 'assets',
-    emptyOutDir: true,
+    emptyOutDir: false,
   },
 }));
