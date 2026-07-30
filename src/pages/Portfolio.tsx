@@ -1,14 +1,12 @@
-import { ExternalLink, Github, Code, Shield, Database, Network, Linkedin, Eye, Search, AlertTriangle } from 'lucide-react';
-import { useState, useRef, useEffect } from 'react';
-import Navigation from '../components/Navigation';
-import CyberBackground from '../components/CyberBackground';
-import SocialLinks from '../components/SocialLinks';
+import { ExternalLink, Github, Code, Shield, Database, Network, AlertTriangle } from 'lucide-react';
+import { useEffect } from 'react';
 import C2Visualization from '../components/C2Visualization';
 import ArbitrageVisualization from '../components/ArbitrageVisualization';
 import WebAppPenTestingViz from '../components/WebAppPenTestingViz';
 import NetworkSecurityScannerViz from '../components/NetworkSecurityScannerViz';
 import PasswordManagerViz from '../components/PasswordManagerViz';
 import SecurityEventAnalysisViz from '../components/SecurityEventAnalysisViz';
+import VideoEmbed from '../components/VideoEmbed';
 
 const Portfolio = () => {
   const projects = [
@@ -62,16 +60,11 @@ const Portfolio = () => {
     },
   ];
 
-  console.log('Portfolio component rendering, projects:', projects.length);
+  useEffect(() => {
+    document.title = 'Oskar Chudoba - Portfolio';
+  }, []);
 
   return (
-    <div className="min-h-screen cyber-bg relative">
-      <Navigation />
-      <CyberBackground />
-      
-      {/* Social Links - Bottom Left */}
-      <SocialLinks />
-      
       <div className="container mx-auto px-6 pt-24 pb-12">
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4">
@@ -161,7 +154,6 @@ const Portfolio = () => {
           </a>
         </div>
       </div>
-    </div>
   );
 };
 

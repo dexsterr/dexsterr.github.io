@@ -2,11 +2,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import Navigation from '../components/Navigation';
-import CyberBackground from '../components/CyberBackground';
 import TypingAnimation from '../components/TypingAnimation';
 import MatrixAnimation from '../components/MatrixAnimation';
-import SocialLinks from '../components/SocialLinks';
 
 const Index = () => {
   const [showMatrix, setShowMatrix] = useState(false);
@@ -53,14 +50,8 @@ const Index = () => {
 
 
   return (
-    <div className="min-h-screen cyber-bg relative">
-      <Navigation />
-      <CyberBackground />
-      
-      {/* Social Links - Bottom Left */}
-      <SocialLinks />
-      
-      <div className="container mx-auto px-6 h-screen flex items-center">
+    <>
+      <div className="container mx-auto px-6 min-h-[calc(100vh-6rem)] flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left Content */}
           <div className="space-y-8 z-10 relative">
@@ -85,8 +76,7 @@ const Index = () => {
             </div>
             
             <p className="text-gray-300 text-lg leading-relaxed max-w-lg">
-              Exploring the depths of cybersecurity, one challenge at a time. 
-              Focused on ethical hacking, SOC Analyst, and building secure systems.
+              Cybersecurity student and active SOC Analyst focused on threat detection, incident response, and Blue Team operations.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -149,8 +139,7 @@ const Index = () => {
           <MatrixAnimation isActive={showMatrix} onComplete={handleMatrixComplete} />
         </div>
       )}
-      
-    </div>
+    </>
   );
 };
 

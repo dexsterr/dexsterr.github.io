@@ -97,25 +97,29 @@
     box-sizing: border-box;
   }
 
-  html, body {
+  html {
+    overflow-x: clip;
+    scroll-behavior: auto;
+  }
+
+  body {
     background: #000;
     color: #fff;
-    overflow-x: hidden;
-    height: 100%;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: clip;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  }
-  
-  /* Force GIF animation and prevent caching issues */
-  img[src*=".gif"] {
-    image-rendering: auto !important;
-    animation-play-state: running !important;
-    backface-visibility: hidden;
-    transform: translateZ(0);
   }
 
   #root {
     min-height: 100vh;
     background: black;
+  }
+
+  img[src*=".gif"] {
+    image-rendering: auto !important;
+    animation-play-state: running !important;
+    backface-visibility: hidden;
   }
 }
 
@@ -129,38 +133,6 @@
     position: relative;
     min-height: 100vh;
     width: 100%;
-  }
-  
-  .cyber-bg::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      linear-gradient(hsl(var(--brand) / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--brand) / 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    pointer-events: none;
-    animation: cyber-grid 20s linear infinite;
-    z-index: -2;
-  }
-
-  .cyber-bg::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 25% 25%, hsl(var(--brand) / 0.1) 1px, transparent 1px),
-      radial-gradient(circle at 75% 75%, hsl(var(--brand) / 0.08) 1px, transparent 1px);
-    background-size: 100px 100px;
-    pointer-events: none;
-    animation: cyber-dots 15s ease-in-out infinite;
-    z-index: -1;
   }
   
   .cyber-pattern {
@@ -297,21 +269,19 @@
 
 @keyframes cyber-grid {
   0% {
-    transform: translate(0, 0);
+    background-position: 0 0;
   }
   100% {
-    transform: translate(50px, 50px);
+    background-position: 50px 50px;
   }
 }
 
 @keyframes cyber-dots {
   0%, 100% {
     opacity: 0.3;
-    transform: scale(1);
   }
   50% {
     opacity: 0.8;
-    transform: scale(1.1);
   }
 }
 

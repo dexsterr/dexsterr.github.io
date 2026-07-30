@@ -1,10 +1,8 @@
-import { Github, Linkedin, Award, BookOpen, Code, ExternalLink, Mail } from 'lucide-react';
-import Navigation from '../components/Navigation';
-import CyberBackground from '../components/CyberBackground';
-import SocialLinks from '../components/SocialLinks';
-import { useMemo, useEffect } from 'react';
+import { Award, BookOpen, Code, ExternalLink, Mail } from 'lucide-react';
+import { useEffect } from 'react';
 import capgeminiLogo from '@/assets/capgemini.png';
 import pgeLogo from '@/assets/pge.svg';
+import trecomLogo from '@/assets/trecom.png';
 
 const About = () => {
   const skills = [
@@ -24,10 +22,21 @@ const About = () => {
 
   const courses = [
     {
+      name: "CompTIA Cybersecurity Analyst (CySA+)",
+      provider: "CompTIA",
+      status: "2026",
+    },
+    {
+      name: "Microsoft Certified: Security Operations Analyst Associate (SC-200)",
+      provider: "Microsoft",
+      status: "2026",
+      link: "https://learn.microsoft.com/en-gb/users/oskarchudoba-9307/credentials/ec125e97a8013f64"
+    },
+    {
       name: "Security Analyst Level 1 (SAL1)",
       provider: "TryHackMe",
-      status: "Planned",
-      link: "https://tryhackme.com/certification/security-analyst-level-1"
+      status: "2026",
+      link: "https://assets.tryhackme.com/certification-certificate/6a64c1b37d9eef287cebcac0.pdf"
     },
     {
       name: "CompTIA Security+",
@@ -65,32 +74,8 @@ const About = () => {
     document.title = 'Oskar Chudoba - Cybersecurity';
   }, []);
 
-  // Dynamic experience date calculation
-  // Poprawka: start od 1 lipca 2025, więc drugi miesiąc pracy w sierpniu 2025
-  const experienceStart = useMemo(() => new Date(2025, 6, 1), []); // July 2025 (month is 0-based)
-  const now = new Date();
-  let months = (now.getFullYear() - experienceStart.getFullYear()) * 12 + (now.getMonth() - experienceStart.getMonth()) + 1;
-  if (months < 1) months = 1;
-  const years = Math.floor(months / 12);
-  const monthsRemainder = months % 12;
-  const duration = years > 0
-    ? `${years} yr${years > 1 ? 's' : ''}${monthsRemainder > 0 ? ` ${monthsRemainder} mo${monthsRemainder > 1 ? 's' : ''}` : ''}`
-    : `${monthsRemainder} mo${monthsRemainder !== 1 ? 's' : ''}`;
-  const experienceText = `Jul 2025 - Present · ${duration}`;
-
-  // Slightly expanded job description for Onsite Service Engineer
-  const onsiteEngineerDesc =
-    'Onsite Service Engineer: technical support, troubleshooting, ticketing, alerts, AD, Intune, ITP. Responsible for resolving user issues, maintaining IT infrastructure, and ensuring smooth daily operations.';
-
   return (
-    <div className="min-h-screen cyber-bg relative">
-      <Navigation />
-      <CyberBackground />
-      
-      {/* Social Links - Bottom Left */}
-      <SocialLinks />
-      
-      <div className="container mx-auto px-6 pt-24 pb-12">
+      <div className="container mx-auto px-6 pt-24 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -110,7 +95,7 @@ const About = () => {
             </div>
             <div className="text-gray-300 leading-relaxed">
               <p>
-                A 21-year-old Cybersecurity student and strong team player, actively expanding my technical skill set. Beyond academic training, I apply my knowledge practically by writing server scripts, and setting up and securing websites. Eager to bring my hands-on experience and problem-solving mindset to a professional environment.
+                Ambitious 21-year-old cybersecurity student and active SOC Analyst. Dedicated to continuous learning in threat detection and incident response, with a strong focus on developing my career in a Blue Team environment. Experienced in utilizing security tools and platforms such as ElasticSearch, Splunk, SecureVisio, Windows Defender, and Wazuh to maintain robust security postures.
               </p>
             </div>
           </div>
@@ -145,7 +130,7 @@ ${course.status === 'Learning'
   ? 'bg-green-500/20 text-green-400'
     : course.status?.startsWith('Planned')
   ? 'bg-red-900/40 text-red-600 border border-red-600/50'
-  : (course.status === '2024' || course.status === '2025')
+  : (course.status === '2024' || course.status === '2025' || course.status === '2026')
   ? 'bg-blue-600 text-white'
   : 'bg-blue-500/20 text-blue-400'
 }`}
@@ -187,15 +172,41 @@ ${course.status === 'Learning'
               
               {/* Timeline Items */}
               <div className="space-y-8">
-                {/* Target Position - SOC Analyst */}
+                {/* Target Position - SOC Analyst L2 */}
                 <div className="relative flex items-start">
-                  <div className="flex-shrink-0 w-4 h-4 bg-green-400/20 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
-                  <div className="ml-8 bg-black/30 rounded-lg p-6 flex-1 border border-green-400/20">
-                    <h3 className="text-green-400 font-semibold text-lg mb-1">SOC Analyst</h3>
-                    <p className="text-gray-400 text-sm mb-2">Target Position</p>
-                    <p className="text-gray-300 text-sm">
-                      Actively seeking opportunities in Security Operations Center environments. I'm working very hard to secure this position and currently targeting SOC Analyst roles. I'm taking specialized courses and studying cybersecurity daily to enhance my skills in threat detection, incident response, and security monitoring.
+                  <div className="flex-shrink-0 w-4 h-4 bg-amber-400/30 border-2 border-amber-400 rounded-full relative z-10 mt-6"></div>
+                  <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-amber-950/90 to-amber-900/50 border border-amber-500/40">
+                    <h3 className="text-amber-300 font-semibold text-lg mb-1">SOC Analyst L2</h3>
+                    <p className="text-amber-200/80 text-sm mb-2 font-medium">Target Position</p>
+                    <p className="text-amber-50/90 text-sm">
+                      Building on my current L1 SOC role, I am actively developing toward Level 2 responsibilities: deeper incident investigation, advanced SIEM correlation and tuning, and stronger threat detection in a Blue Team environment. I study and certify continuously to grow into a full L2 SOC Analyst position.
                     </p>
+                  </div>
+                </div>
+
+                {/* SOC Analyst L1 - Trecom */}
+                <div className="relative flex items-start">
+                  <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
+                  <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-blue-900/80 to-blue-700/80 border border-blue-500/30">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4 shrink-0"
+                        style={{ background: '#001133' }}
+                      >
+                        <img src={trecomLogo} alt="Trecom logo" className="w-8 h-8 object-contain" />
+                      </div>
+                      <div>
+                        <h3 className="text-white font-semibold text-lg">SOC Analyst L1</h3>
+                        <p className="text-blue-200 font-medium">Trecom · 2026 – Present · Remote</p>
+                      </div>
+                    </div>
+                    <ul className="text-blue-50 text-sm space-y-2 list-disc list-inside">
+                      <li>Monitor and analyze security events and incidents using SIEM platforms.</li>
+                      <li>Analyze and escalate security alerts to reduce incident response time.</li>
+                      <li>Investigate security incidents and generate detailed technical reports.</li>
+                      <li>Tune SIEM correlation rules to minimize false positives and improve threat detection.</li>
+                      <li>Conduct proactive cybersecurity operations within a Blue Team environment.</li>
+                    </ul>
                   </div>
                 </div>
 
@@ -209,19 +220,20 @@ ${course.status === 'Learning'
                         </div>
                         <div>
                           <h3 className="text-white font-semibold text-lg">Cybersecurity Internship</h3>
-                          <p className="text-gray-400 font-medium">PGE Energia Ciepla S.A. · Jan - Feb 2026</p>
+                          <p className="text-gray-400 font-medium">PGE Energia Ciepła · 2026 · Remote</p>
                         </div>
                       </div>
-                      <p className="text-gray-300 text-sm">
-                        SIEM monitoring and incident detection, cybersecurity tasks and alert triage, ElasticSearch log analysis, and ticket handling via Freescout. Gained hands-on exposure to security operations and incident investigation.
-                      </p>
+                      <ul className="text-gray-300 text-sm space-y-2 list-disc list-inside">
+                        <li>Analyzed system logs using ElasticSearch to identify and report security anomalies.</li>
+                        <li>Managed and triaged security tickets and alerts through Freescout, improving workflow efficiency.</li>
+                      </ul>
                     </div>
                   </div>
 
-                  {/* Onsite Service Engineer - Capgemini */}
+                  {/* IT Infrastructure Support Specialist - Capgemini */}
                   <div className="relative flex items-start">
                     <div className="flex-shrink-0 w-4 h-4 bg-green-400 border-2 border-green-400 rounded-full relative z-10 mt-6"></div>
-                    <div className="ml-8 rounded-lg p-6 flex-1 bg-gradient-to-r from-blue-900/80 to-blue-700/80 border border-blue-500/30">
+                    <div className="ml-8 rounded-lg p-6 flex-1 bg-black/30 border border-green-400/10">
                       <div className="flex items-center space-x-3 mb-3">
                         <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden mr-4" style={{ background: 'linear-gradient(135deg, #0a0a0a 60%, #232946 100%)' }}>
                           <img
@@ -231,14 +243,15 @@ ${course.status === 'Learning'
                           />
                         </div>
                         <div>
-                          <h3 className="text-white font-semibold text-lg">Onsite Service Engineer</h3>
-                          <p className="text-blue-200 font-medium">Capgemini · Full-time</p>
+                          <h3 className="text-white font-semibold text-lg">IT Infrastructure Support Specialist</h3>
+                          <p className="text-gray-400 font-medium">Capgemini Polska · 2025 – 2026 · On-site</p>
                         </div>
                       </div>
-                      <p className="text-blue-100 text-sm mb-2">{experienceText}</p>
-                      <p className="text-blue-50 text-sm">
-                        {onsiteEngineerDesc}
-                      </p>
+                      <ul className="text-gray-300 text-sm space-y-2 list-disc list-inside">
+                        <li>Delivered Level 1 technical support for local and remote users, resolving hardware and software issues efficiently.</li>
+                        <li>Administered user accounts and devices via Active Directory and Microsoft Intune.</li>
+                        <li>Resolved infrastructure alerts, maintaining optimal service availability and minimizing downtime.</li>
+                      </ul>
                     </div>
                   </div>
               </div>
@@ -268,7 +281,6 @@ ${course.status === 'Learning'
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
