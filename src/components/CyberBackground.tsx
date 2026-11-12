@@ -1,29 +1,24 @@
+import { Shield, Lock } from 'lucide-react';
 
-import { Shield, Lock, Zap, Eye } from 'lucide-react';
-
+/**
+ * Minimal decorative overlay above the (now subtle) ShaderBackground.
+ * DOM-only, zero per-frame cost. Kept deliberately sparse for a clean look:
+ * a faint masked grid, a soft vignette and two low-opacity glyphs.
+ */
 const CyberBackground = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      <div className="absolute inset-0 cyber-pattern opacity-30" />
-      
-      <div className="absolute top-20 right-20 text-green-500/20">
-        <Shield size={80} />
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="absolute inset-0 cyber-pattern opacity-[0.18]" />
+      <div
+        className="absolute inset-0"
+        style={{ background: 'radial-gradient(circle at 50% 40%, transparent 62%, rgba(4,7,10,0.9) 100%)' }}
+      />
+
+      <div className="absolute top-28 right-24 text-green-500/[0.05] animate-float" style={{ animationDelay: '0s' }}>
+        <Shield size={72} />
       </div>
-      <div className="absolute bottom-32 right-32 text-green-500/15">
-        <Lock size={60} />
-      </div>
-      <div className="absolute top-1/3 right-10 text-green-500/10">
-        <Zap size={100} />
-      </div>
-      <div className="absolute bottom-20 right-20 text-green-500/20">
-        <Eye size={50} />
-      </div>
-      
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent" />
-        <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-green-500/20 to-transparent" />
-        <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-green-500/20 to-transparent" />
+      <div className="absolute bottom-40 left-20 text-cyan-400/[0.05] animate-float" style={{ animationDelay: '1.8s' }}>
+        <Lock size={54} />
       </div>
     </div>
   );

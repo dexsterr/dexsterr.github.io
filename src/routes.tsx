@@ -1,18 +1,16 @@
 import { createHashRouter } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
-import Index from './pages/Index';
-import Portfolio from './pages/Portfolio';
-import About from './pages/About';
-import NotFound from './pages/NotFound';
+import Home from './pages/Home';
 
 export const router = createHashRouter([
   {
     element: <RootLayout />,
     children: [
-      { index: true, element: <Index /> },
-      { path: 'portfolio', element: <Portfolio /> },
-      { path: 'about', element: <About /> },
-      { path: '*', element: <NotFound /> },
+      { index: true, element: <Home /> },
+      // legacy paths resolve to the same single-page experience
+      { path: 'portfolio', element: <Home /> },
+      { path: 'about', element: <Home /> },
+      { path: '*', element: <Home /> },
     ],
   },
 ]);

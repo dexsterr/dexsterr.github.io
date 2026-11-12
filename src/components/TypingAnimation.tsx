@@ -1,9 +1,10 @@
 
 import { useState, useEffect } from 'react';
-
-const texts = ["Cybersecurity Junior", "Student", "Aspiring Hacker"];
+import { useT } from '../i18n/LanguageContext';
 
 const TypingAnimation = () => {
+  const { t } = useT();
+  const texts = [t('Cybersecurity Junior'), t('Student'), t('Aspiring Hacker')];
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
