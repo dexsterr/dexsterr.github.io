@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oskar Chudoba SOC</title>
+<meta name="description" content="Oskar Chudoba: SOC Analyst, Blue Team. Projects, experience, certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./src/style.css">
+</head>
+<body class="loading">
+
+<div id="loader">
+  <div class="mono ld-row"><span>OC/SOC — BOOT</span><span id="ld-msg">LOADING SENSORS</span></div>
+  <pre class="mono ld-log" id="ld-log"></pre>
+  <div class="ld-row"><span class="ld-num" id="ld-pct">000</span></div>
+  <div class="ld-bar"><i id="ld-bar"></i></div>
+</div>
+
+<canvas id="gl"></canvas>
+<div id="scan"></div>
+
+<header class="hud top">
+  <a class="logo" href="#" data-go="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.5 8 11 4.6-1.5 8-6 8-11V5l-8-3Z"/></svg><b>OC</b><span class="mono">SOC / BLUE TEAM</span></a>
+  <nav class="mono" id="nav"></nav>
+  <div class="hud-r mono"><button id="lang" aria-label="Language">PL / EN</button></div>
+</header>
+<footer class="hud bot mono">
+  <button id="snd" aria-pressed="false"><span class="eq"><i></i><i></i><i></i><i></i></span><span id="snd-t"></span></button>
+  <div class="prog"><span id="sec-n">00</span><i><b id="prog"></b></i><span>10</span></div>
+</footer>
+
+<div id="panels"></div>
+<main id="scroll"></main>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

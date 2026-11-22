@@ -1,52 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>Oskar Chudoba - Cybersecurity</title>
-    <meta name="description" content="Portfolio of Oskar Chudoba - Cybersecurity Specialist, SOC Analyst, Ethical Hacker" />
-    <meta name="keywords" content="cybersecurity, ethical hacking, SOC analyst, penetration testing, network security" />
-    <meta name="author" content="Oskar Chudoba" />
-    <meta name="robots" content="index, follow" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dexsterr.github.io/" />
-    <meta property="og:title" content="Oskar Chudoba - Cybersecurity" />
-    <meta property="og:description" content="Cybersecurity Specialist & SOC Analyst" />
-    <meta property="og:image" content="https://dexsterr.github.io/avatar.gif" />
-    <meta property="og:site_name" content="Oskar Chudoba Portfolio" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Oskar Chudoba - Cybersecurity" />
-    <meta name="twitter:description" content="Cybersecurity Specialist & SOC Analyst" />
-    <meta name="twitter:image" content="https://dexsterr.github.io/avatar.gif" />
-
-    <link rel="manifest" href="/assets/manifest-BdPpS7t3.json" />
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%2300ff00'>$</text></svg>" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-CcNt6fMI.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CTI8u7B2.css">
-  <script>
-(function () {
-  var current = document.querySelector('script[type="module"]');
-  if (!current) return;
-  var loaded = current.getAttribute("src");
-  fetch("/index.html?_=" + Date.now(), { cache: "no-store" })
-    .then(function (response) { return response.text(); })
-    .then(function (html) {
-      var match = html.match(/src="(\/assets\/index-[^"]+\.js)"/);
-      if (match && match[1] !== loaded) location.reload();
-    })
-    .catch(function () {});
-})();
-</script>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oskar Chudoba SOC</title>
+<meta name="description" content="Oskar Chudoba: SOC Analyst, Blue Team. Projects, experience, certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <script defer src="./assets/index-DMC4RNEx.js"></script>
+  <link rel="stylesheet" href="./assets/style-DYphrN8Y.css">
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<body class="loading">
+
+<div id="loader">
+  <div class="mono ld-row"><span>OC/SOC — BOOT</span><span id="ld-msg">LOADING SENSORS</span></div>
+  <pre class="mono ld-log" id="ld-log"></pre>
+  <div class="ld-row"><span class="ld-num" id="ld-pct">000</span></div>
+  <div class="ld-bar"><i id="ld-bar"></i></div>
+</div>
+
+<canvas id="gl"></canvas>
+<div id="scan"></div>
+
+<header class="hud top">
+  <a class="logo" href="#" data-go="0"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.5 8 11 4.6-1.5 8-6 8-11V5l-8-3Z"/></svg><b>OC</b><span class="mono">SOC / BLUE TEAM</span></a>
+  <nav class="mono" id="nav"></nav>
+  <div class="hud-r mono"><button id="lang" aria-label="Language">PL / EN</button></div>
+</header>
+<footer class="hud bot mono">
+  <button id="snd" aria-pressed="false"><span class="eq"><i></i><i></i><i></i><i></i></span><span id="snd-t"></span></button>
+  <div class="prog"><span id="sec-n">00</span><i><b id="prog"></b></i><span>10</span></div>
+</footer>
+
+<div id="panels"></div>
+<main id="scroll"></main>
+
+</body>
 </html>
