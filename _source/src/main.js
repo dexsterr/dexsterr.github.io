@@ -532,13 +532,13 @@ const ST = [
   { p: [0, 0, 0], D: 13, b: sHero },
   { p: [7, 0, -40], D: 13, b: sSiem },
   { p: [-6, 0, -80], D: 15, b: sExp },
-  { p: [6, 0, -124], D: 11, b: sC2 },
-  { p: [-6, 0, -160], D: 11, b: sArb },
-  { p: [6, 0, -196], D: 11.5, b: sWeb, f: [1.2, 0, -1.6] },
-  { p: [-6, 0, -232], D: 11, b: sNet },
-  { p: [6, 0, -268], D: 11, b: sVault },
-  { p: [-6, 0, -304], D: 11.5, b: sIoc },
-  { p: [0, 0, -346], D: 8.5, b: sCerts, f: [0, 0, 5.2] },
+  { p: [0, 0, -124], D: 8.5, b: sCerts, f: [0, 0, 5.2] }, // certyfikaty PRZED projektami (użytkownik 22.11)
+  { p: [6, 0, -170], D: 11, b: sC2 },
+  { p: [-6, 0, -206], D: 11, b: sArb },
+  { p: [6, 0, -242], D: 11.5, b: sWeb, f: [1.2, 0, -1.6] },
+  { p: [-6, 0, -278], D: 11, b: sNet },
+  { p: [6, 0, -314], D: 11, b: sVault },
+  { p: [-6, 0, -350], D: 11.5, b: sIoc },
   { p: [0, 0, -392], D: 11, b: sContact },
 ];
 const W = [];
@@ -554,7 +554,7 @@ function camFor(i, out, tgt) {
 
 // ---------------------------------------------------------------- panele (HTML z danych)
 const panelsEl = document.getElementById('panels');
-const NAVMAP = [0, 1, 2, 3, 9, 10];
+const NAVMAP = [0, 1, 2, 3, 4, 10]; // Home, Profile, Experience, Certs, Work, Contact
 function card(i, inner) { return `<section class="pan card" data-i="${i}">${inner}</section>`; }
 function renderPanels() {
   const u = UI[LANG];
@@ -569,18 +569,18 @@ function renderPanels() {
     <h1 class="h"><span class="ln"><span>OSKAR</span></span><span class="ln"><span>CHUDOBA</span></span></h1>
     <p class="role" id="role"></p>
     <p class="lead">${u.lead}</p>
-    <div class="row"><a class="btn pri" data-go="3">${u.view} →</a><a class="btn" data-go="10">${u.contact}</a><a class="btn" href="${LINKS.github}" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div class="row"><a class="btn pri" data-go="4">${u.view} →</a><a class="btn" data-go="10">${u.contact}</a><a class="btn" href="${LINKS.github}" target="_blank" rel="noopener">GitHub ↗</a></div>
     <p class="mono hint">${u.scroll}<i></i></p></section>`;
   h += card(1, `<p class="mono k">01 <em>/ ${u.nav[1]}</em></p><h2 class="h scr" data-t="${u.story}">${u.story}</h2><p class="d">${u.storyT}</p>
     <div class="stats">${u.stats.map(([n, l]) => `<div><b data-n="${n}">${n}</b><span class="mono">${l}</span></div>`).join('')}</div>
     <div class="chips">${SKILLS[LANG].map(s => `<span>${s}</span>`).join('')}</div>`);
   h += card(2, `<p class="mono k">02 <em>/ ${u.exp}</em></p><h2 class="h scr" data-t="${u.exp}">${u.exp}</h2><ul class="exp">${chrono.map((e, k) => `<li data-k="${k}" class="${e.target ? 'tg' : ''}"><div class="t">${e.logo ? `<img src="./media/${e.logo}" alt="">` : ''}<div><b>${tr(e.role)}</b><small>${tr(e.org)}</small></div></div><ul><div>${e.pts[LANG].map(p => `<p>${p}</p>`).join('')}</div></ul></li>`).join('')}</ul>`);
   PROJECTS.forEach((p, k) => {
-    h += card(3 + k, `<p class="mono k">${u.proj} 0${k + 1} <em>/ 06</em></p><h2 class="h scr" data-t="${tr(p.title)}">${tr(p.title)}</h2><p class="d">${tr(p.desc)}</p>
+    h += card(4 + k, `<p class="mono k">${u.proj} 0${k + 1} <em>/ 06</em></p><h2 class="h scr" data-t="${tr(p.title)}">${tr(p.title)}</h2><p class="d">${tr(p.desc)}</p>
       <div class="tags">${p.tech.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="row"><a class="btn pri" href="${p.code}" target="_blank" rel="noopener">${u.code} ↗</a>${k === 5 ? `<a class="btn" href="${LINKS.github}" target="_blank" rel="noopener">${u.more} ↗</a>` : ''}</div>`);
   });
-  h += card(9, `<p class="mono k">09 <em>/ ${u.nav[4]}</em></p><h2 class="h scr" data-t="${u.certs}">${u.certs}</h2><ul class="certs">${CERTS.map((c, k) => `<li data-k="${k}"><span>${c.y}</span>${c.link ? `<a href="${c.link}" target="_blank" rel="noopener"><b>${c.name} ↗</b></a>` : `<b>${c.name}</b>`}<small>${c.by}</small></li>`).join('')}</ul>`);
+  h += card(3, `<p class="mono k">03 <em>/ ${u.nav[3]}</em></p><h2 class="h scr" data-t="${u.certs}">${u.certs}</h2><ul class="certs">${CERTS.map((c, k) => `<li data-k="${k}"><span>${c.y}</span>${c.link ? `<a href="${c.link}" target="_blank" rel="noopener"><b>${c.name} ↗</b></a>` : `<b>${c.name}</b>`}<small>${c.by}</small></li>`).join('')}</ul>`);
   h += `<section class="pan p-contact" data-i="10"><div><p class="mono k">10 <em>/ ${u.nav[5]}</em></p><h2 class="h">${u.lets} <em>${u.talk}</em></h2><p>${u.contactT}</p>
     <div class="row shapes"><a class="btn" data-shape="0" href="${LINKS.github}" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" data-shape="1" href="${LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn ↗</a><a class="btn" data-shape="2" href="${LINKS.thm}" target="_blank" rel="noopener">TryHackMe ↗</a></div></div>
     <button class="mail" id="mail" data-shape="3"><span class="mono">E-MAIL</span>${LINKS.mail}<i class="mono">${u.copied}</i></button></section>`;
@@ -656,7 +656,7 @@ document.getElementById('snd').addEventListener('click', e => { const on = !snd.
 document.getElementById('lang').addEventListener('click', () => { LANG = LANG === 'pl' ? 'en' : 'pl'; try { localStorage.setItem('oc_lang2', LANG); } catch (e) { /* brak */ } renderPanels(); });
 
 // ---------------------------------------------------------------- scroll
-const HV = [100, 120, 200, 120, 120, 120, 120, 120, 120, 180, 200];
+const HV = [100, 120, 200, 180, 120, 120, 120, 120, 120, 120, 200];
 const scrollEl = document.getElementById('scroll');
 scrollEl.innerHTML = HV.map((h, i) => `<div class="sec" id="s${i}" style="height:${h}vh"></div>`).join('');
 const sections = [...scrollEl.children];
@@ -728,7 +728,7 @@ function frame(now) {
   const i = Math.min(Math.floor(sf), K.length - 1), e = sf - i, j = Math.min(i + 1, K.length - 1);
   camFor(i, cP, cT); camFor(j, bP, bT);
   // przelot certs -> kontakt: wzrok od razu na tarczę (cel szybciej), bez cofania kamery, lekko nad kartami
-  const toC = i === 9;
+  const toC = i === 9 || i === 3; // wylot z pierścienia certyfikatów i dolot do kontaktu
   cP.lerp(bP, e); cT.lerp(bT, toC ? sstep(0, 0.55, e) : e);
   const arc = Math.sin(e * Math.PI); cP.z += arc * (toC ? 0 : 7); cP.y += arc * (toC ? 2.6 : 2.2);
   cP.x += mouse.sx * 0.5 + Math.sin(T * 0.23) * 0.15; cP.y -= mouse.sy * 0.3 + Math.sin(T * 0.19) * 0.1;
@@ -738,16 +738,16 @@ function frame(now) {
 
   // sceny: tylko w pobliżu kamery
   W.forEach((g, k) => {
-    const d = Math.abs(cP.z - K[k].P.z), vis = d < (k === 10 ? 72 : 44); g.visible = vis;
+    const d = cP.z - K[k].P.z, vis = d > -22 && d < 72; g.visible = vis; // przed kamerą widać daleko (bez wyskakiwania sceny w locie), za kamerą tylko blisko
     if (!vis) return;
     const pres = sstep(k - 0.8, k - 0.05, sf) * (1 - sstep(k + 0.6, k + 1.2, sf));
     g.userData.tick(T, pres, dt);
   });
-  W[9].userData.fade = 1 - sstep(9.02, 9.45, sf); W[10].userData.arrive = sstep(9.15, 10, sf);
+  W[3].userData.fade = sstep(2.08, 2.6, sf) * (1 - sstep(3.02, 3.45, sf)); W[10].userData.arrive = sstep(9.15, 10, sf);
   // stany zależne od postępu w sekcji
   if (SP.sec === 2) { const st = Math.min(3, Math.max(0, Math.floor((SP.f - 0.4) / 0.6 * 4))); W[2].userData.step = st; document.querySelectorAll('.exp > li').forEach(li => li.classList.toggle('on', +li.dataset.k === st)); }
   else if (sf < 2) W[2].userData.step = 0;
-  if (SP.sec === 9) { const c = clamp01((SP.f - 0.35) / 0.6) * (CERTS.length - 1); W[9].userData.rot = c / CERTS.length * Math.PI * 2; const idx = Math.round(c); W[9].userData.idx = idx; document.querySelectorAll('.certs li').forEach(li => li.classList.toggle('on', +li.dataset.k === idx)); }
+  if (SP.sec === 3) { const c = clamp01((SP.f - 0.35) / 0.6) * (CERTS.length - 1); W[3].userData.rot = c / CERTS.length * Math.PI * 2; const idx = Math.round(c); W[3].userData.idx = idx; document.querySelectorAll('.certs li').forEach(li => li.classList.toggle('on', +li.dataset.k === idx)); }
   // mysz nad cząsteczkami kontaktu
   if (W[10].visible) { ndc.set(mouse.x, -mouse.y); ray.setFromCamera(ndc, camera); PL.constant = -K[10].P.z; const pl = PL; if (ray.ray.intersectPlane(pl, hit)) W[10].userData.mat.uniforms.mouse.value.copy(hit); }
 

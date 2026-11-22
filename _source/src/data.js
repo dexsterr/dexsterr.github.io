@@ -8,7 +8,7 @@ export const LINKS = {
 
 export const UI = {
   pl: {
-    nav: ['Start', 'Profil', 'Doświadczenie', 'Projekty', 'Certyfikaty', 'Kontakt'],
+    nav: ['Start', 'Profil', 'Doświadczenie', 'Certyfikaty', 'Projekty', 'Kontakt'],
     kick: 'CYBERBEZPIECZEŃSTWO · ANALITYK SOC · BLUE TEAM',
     hello: 'Cześć, jestem',
     lead: 'Student cyberbezpieczeństwa i aktywny analityk SOC skupiony na wykrywaniu zagrożeń, reagowaniu na incydenty i operacjach Blue Team.',
@@ -25,7 +25,7 @@ export const UI = {
     target: 'Stanowisko docelowe', now: 'obecnie',
   },
   en: {
-    nav: ['Home', 'Profile', 'Experience', 'Work', 'Certs', 'Contact'],
+    nav: ['Home', 'Profile', 'Experience', 'Certs', 'Work', 'Contact'],
     kick: 'CYBERSECURITY · SOC ANALYST · BLUE TEAM',
     hello: "Hi, I'm",
     lead: 'Cybersecurity student and active SOC Analyst focused on threat detection, incident response, and Blue Team operations.',
